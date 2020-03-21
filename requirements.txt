@@ -9,7 +9,7 @@ django-storages==1.9.1
 docutils==0.15.2
 idna==2.9
 jmespath==0.9.5
-Pillow==6.2.0
+Pillow==5.4.0
 psycopg2==2.8.4
 pytz==2019.3
 requests==2.23.0
