@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
+            <p><span class="boldtext">Price:</span>{{ product.price }}</p>
+        </div>
+        <div class="col-sm-10 col-md-9">
+            <h3>{{ product.name }}</h3>
+            <form method="post" action="{% url 'add_to_cart' product.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                    </div>
+            </form>
+            <div class="row">
+                <div class="col-xs-9">
+                    <p>{{ product.description }}</p>
+
+                    <a href="{% url 'view_cart' %}" class="btn btn-default">View Cart</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
