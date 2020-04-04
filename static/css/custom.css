@@ -70,6 +70,6 @@ caption p {
 }
 
 .product-image {
-    height: 300px;
-    width: auto;
+    max-height: 300px;
+    max-width: 300px;
 }
