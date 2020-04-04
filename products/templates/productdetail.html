@@ -2,8 +2,14 @@
 
 {% block content %}
     <div class="row">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
+        <!--<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
             <p><span class="boldtext">Price:</span>{{ product.price }}</p>
+        </div> -->
+        <div class="col-md-2 col-sm-3 text-center">
+            <a class="story-img" href="#">
+                <img src="url('{{ MEDIA_URL }}{{ product.image }}')">
+            </a>
+            <p><span class="boldtext">Price:</span> {{ product.price }}</p>
         </div>
         <div class="col-sm-10 col-md-9">
             <h3>{{ product.name }}</h3>
