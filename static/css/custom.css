@@ -68,3 +68,8 @@ caption p {
 .boldtext{
     font-weight: bold;
 }
+
+.product-image {
+    height: 300px;
+    width: auto;
+}
