@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2>Success!</h2>
-    <p>You are logged in as {{ user.email }} </p>
+    <h2>You are logged in as {{ user.username }} </h2>
+
+    <p><span class="boldtext">Full Name:</span> {{ profile.full_name }}</p>
+    <p><span class="boldtext">Phone Number:</span> {{ profile.phone_number }}</p>
+    <p><span class="boldtext">Country:</span> {{ profile.country }}</p>
+    <p><span class="boldtext">Postcode:</span> {{ profile.postcode }}</p>
+    <p><span class="boldtext">Town/City:</span> {{ profile.town_or_city }}</p>
+    <p><span class="boldtext">Street Address 1:</span> {{ profile.street_address1 }}</p>
+    <p><span class="boldtext">Street Address 2:</span> {{ profile.street_address2 }}</p>
+    <p><span class="boldtext">County:</span> {{ profile.county }}</p>
 {% endblock %}
