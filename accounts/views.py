@@ -4,6 +4,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from .forms import UserLoginForm, UserRegistrationForm
 from django.template.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from .models import Profile
 
 
 # Create your views here.
