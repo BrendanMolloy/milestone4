@@ -79,8 +79,6 @@ def edit_profile(request):
     """
     view to handle the form for users to enter/edit their profile
     """
-    return render(request, 'editprofile.html')
-    """
     user_id = request.user.pk
     try:
         user_profile = Profile.objects.get(user=user_id)
@@ -126,4 +124,4 @@ def edit_profile(request):
     args = {"active": "index", "base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
     return render(request, "accounts/editprofile.html", args)
-    """
+
