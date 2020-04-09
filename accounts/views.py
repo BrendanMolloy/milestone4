@@ -119,7 +119,7 @@ def edit_profile(request):
             profile_form = ProfileForm()
         baseform = UserUpdateForm(initial={"email": request.user.email})
 
-    args = {"active": "index", "base_form": baseform, "profile_form": profile_form}
+    args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
     return render(request, "accounts/editprofile.html", args)
 
