@@ -73,3 +73,55 @@ def register(request):
 
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
+
+
+def edit_profile(request):
+    """
+    view to handle the form for users to enter/edit their profile
+    """
+    user_id = request.user.pk
+    try:
+        user_profile = Profile.objects.get(user=user_id)
+       
+    if request.method=="POST":
+        baseform = UserUpdateForm(request.POST, user=request.user)
+        profile_form = ProfileForm(request.POST)
+        if baseform.is_valid() and profile_form.is_valid():
+            # save the new email and/or password - but only if the user tried to change it!
+            data = baseform.cleaned_data
+            if baseform.fields["email"].has_changed(request.user.email, data["email"]):
+                request.user.email = data["email"]
+                request.user.save()
+            if (baseform.fields["current_password"].has_changed(None, data["current_password"])
+                or baseform.fields["new_password1"].has_changed(None, data["new_password1"])
+                or baseform.fields["new_password2"].has_changed(None, data["new_password2"])):
+                request.user.set_password(data["new_password1"])
+                request.user.save()
+                update_session_auth_hash(request, request.user)
+            # save the profile details (location and max_distance)
+            details = profile_form.save(commit=False)
+            details.user = request.user
+            try:
+                details.save()
+            except IntegrityError:
+                # this happens if the user already exists (because only one profile is allowed per user)
+                # In other words, the user wants to update their profile. We allow this by specifying
+                # the primary key when saving the model
+                details.pk = Profile.objects.get(user=user_id).pk
+                details.save()
+
+        else:
+            messages.error(request, "Please correct the highlighted errors:")
+    else:
+        # display the user's current details, if they exist
+        try:
+            user_profile = Profile.objects.get(user=user_id)
+            profile_form = ProfileForm(instance=user_profile)
+        except Profile.DoesNotExist:
+            profile_form = ProfileForm()
+        baseform = UserUpdateForm(initial={"email": request.user.email})
+
+    args = {"active": "index", "base_form": baseform, "profile_form": profile_form}
+    args.update(csrf(request))
+    return render(request, "accounts/editprofile.html", args)
+
