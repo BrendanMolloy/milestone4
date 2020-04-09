@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', all_products, name='index'),
     url(r'^accounts/', include(urls_accounts)),
+    url(r"^profile/edit/$", accounts_views.edit_profile, name="edit_profile"),
     url(r'^products/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
