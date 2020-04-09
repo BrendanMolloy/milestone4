@@ -80,9 +80,7 @@ def edit_profile(request):
     view to handle the form for users to enter/edit their profile
     """
     user_id = request.user.pk
-    try:
-        user_profile = Profile.objects.get(user=user_id)
-       
+      
     if request.method == 'POST':
         baseform = UserUpdateForm(request.POST, user=request.user)
         profile_form = ProfileForm(request.POST)
