@@ -83,7 +83,7 @@ def edit_profile(request):
     try:
         user_profile = Profile.objects.get(user=user_id)
        
-    if request.method=="POST":
+    if request.method == 'POST':
         baseform = UserUpdateForm(request.POST, user=request.user)
         profile_form = ProfileForm(request.POST)
         if baseform.is_valid() and profile_form.is_valid():
