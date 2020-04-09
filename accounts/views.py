@@ -74,7 +74,7 @@ def register(request):
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
 
-
+@login_required(login_url=reverse_lazy("login"))
 def edit_profile(request):
     """
     view to handle the form for users to enter/edit their profile
