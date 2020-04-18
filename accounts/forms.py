@@ -76,8 +76,6 @@ class ProfileForm(forms.ModelForm):
     The form for a user to fill out their basic profile information (location,
     and maximum distance they are willing to travel)
     """
-    
-    # make the max_distance ForeignKey field have no "blank" option in the form:
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
 

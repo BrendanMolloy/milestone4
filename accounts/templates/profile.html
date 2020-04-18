@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
+{% csrf_token %}
     <h2>You are logged in as {{ user.username }} </h2>
     <h4>Shipping Details:</h4>
     <p><span class="boldtext">Full Name:</span> {{ profile.full_name }}</p>
