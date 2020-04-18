@@ -51,7 +51,7 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    return render(request, 'profile.html')
+    return render(request, 'profile.html' {'profile': profile})
 
 
 def register(request):
