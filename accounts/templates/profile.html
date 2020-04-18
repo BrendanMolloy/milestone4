@@ -1,15 +1,16 @@
 {% extends "base.html" %}
+{% load bootstrap_tags %}
 {% block content %}
     <h2>You are logged in as {{ user.username }} </h2>
     <h4>Shipping Details:</h4>
-    <p><span class="boldtext">Full Name:</span> {{ user.full_name }}</p>
-    <p><span class="boldtext">Phone Number:</span> {{ user.phone_number }}</p>
-    <p><span class="boldtext">Country:</span> {{ user.country }}</p>
-    <p><span class="boldtext">Postcode:</span> {{ user.postcode }}</p>
-    <p><span class="boldtext">Town/City:</span> {{ user.town_or_city }}</p>
-    <p><span class="boldtext">Street Address 1:</span> {{ user.street_address1 }}</p>
-    <p><span class="boldtext">Street Address 2:</span> {{ user.street_address2 }}</p>
-    <p><span class="boldtext">County:</span> {{ user.county }}</p>
+    <p><span class="boldtext">Full Name:</span> {{ profile.full_name }}</p>
+    <p><span class="boldtext">Phone Number:</span> {{ profile.phone_number }}</p>
+    <p><span class="boldtext">Country:</span> {{ profile.country }}</p>
+    <p><span class="boldtext">Postcode:</span> {{ profile.postcode }}</p>
+    <p><span class="boldtext">Town/City:</span> {{ profile.town_or_city }}</p>
+    <p><span class="boldtext">Street Address 1:</span> {{ profile.street_address1 }}</p>
+    <p><span class="boldtext">Street Address 2:</span> {{ profile.street_address2 }}</p>
+    <p><span class="boldtext">County:</span> {{ profile.county }}</p>
 
     <a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
 {% endblock %}
