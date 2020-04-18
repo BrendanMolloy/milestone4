@@ -2,14 +2,14 @@
 {% block content %}
     <h2>You are logged in as {{ user.username }} </h2>
     <h4>Shipping Details:</h4>
-    <p><span class="boldtext">Full Name:</span> {{ Profile.full_name }}</p>
-    <p><span class="boldtext">Phone Number:</span> {{ Profile.phone_number }}</p>
-    <p><span class="boldtext">Country:</span> {{ Profile.country }}</p>
-    <p><span class="boldtext">Postcode:</span> {{ Profile.postcode }}</p>
-    <p><span class="boldtext">Town/City:</span> {{ Profile.town_or_city }}</p>
-    <p><span class="boldtext">Street Address 1:</span> {{ Profile.street_address1 }}</p>
-    <p><span class="boldtext">Street Address 2:</span> {{ Profile.street_address2 }}</p>
-    <p><span class="boldtext">County:</span> {{ Profile.county }}</p>
+    <p><span class="boldtext">Full Name:</span> {{ user.full_name }}</p>
+    <p><span class="boldtext">Phone Number:</span> {{ user.phone_number }}</p>
+    <p><span class="boldtext">Country:</span> {{ user.country }}</p>
+    <p><span class="boldtext">Postcode:</span> {{ user.postcode }}</p>
+    <p><span class="boldtext">Town/City:</span> {{ user.town_or_city }}</p>
+    <p><span class="boldtext">Street Address 1:</span> {{ user.street_address1 }}</p>
+    <p><span class="boldtext">Street Address 2:</span> {{ user.street_address2 }}</p>
+    <p><span class="boldtext">County:</span> {{ user.county }}</p>
 
     <a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
 {% endblock %}
