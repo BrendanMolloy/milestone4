@@ -124,5 +124,5 @@ def edit_profile(request):
 
     args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
-    return render(request, "profile.html", args)
+    return render(request, "editprofile.html", args)
 
