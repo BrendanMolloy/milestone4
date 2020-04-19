@@ -125,13 +125,3 @@ def edit_profile(request):
     args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
     return render(request, "editprofile.html", args)
-
-"""def update_profile(request, id):
-    Update profile information collected from editprofile.html
-    full_name = request.POST.get('full_name')
-
-    profile = request.session.get('profile', {})
-    profile[id] = profile.get(id, full_name)
-
-    request.session['profile'] = profile
-    return redirect(reverse('index'))"""
