@@ -124,7 +124,7 @@ def edit_profile(request):
 
     args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
-    return render(request, "editprofile.html", args)
+    return render(request, "editprofile", args)
 
 def update_profile(request, id):
     """Update profile information collected from editprofile.html"""
