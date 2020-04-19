@@ -6,7 +6,7 @@
      <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <form role="form" action="{% url 'editprofile' profile.id %}" method="post">
+                <form role="form" action="{% url 'edit_profile' profile.id %}" method="post">
                     {% csrf_token %}
                     {{ base_form | as_bootstrap }}
                     {{ profile_form | as_bootstrap }}
