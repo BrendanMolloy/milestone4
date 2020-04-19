@@ -134,4 +134,4 @@ def update_profile(request, id):
     profile[id] = profile.get(id, full_name)
 
     request.session['profile'] = profile
-    return redirect(reverse('profile.html'))
+    return redirect('profile.html')
