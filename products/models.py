@@ -14,7 +14,6 @@ class Product(models.Model):
 class Comment(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
     user = models.OneToOneField(User)
-    name = user.username
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
