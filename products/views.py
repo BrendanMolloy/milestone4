@@ -18,7 +18,7 @@ def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     product.save()
 
-    comments = post.comments.filter(active=True)
+    comments = product.comments.filter(active=True)
     new_comment = None
     # Comment posted
     if request.method == 'POST':
