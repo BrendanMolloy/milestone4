@@ -16,8 +16,7 @@ def product_detail(request, pk):
     not found
     """
     product = get_object_or_404(Product, pk=pk)
-    product.save()
-
+    
     comments = product.comments.filter(active=True)
     new_comment = None
     # Comment posted
@@ -33,6 +32,8 @@ def product_detail(request, pk):
             new_comment.save()
     else:
         comment_form = CommentForm()
+
+    product.save()
 
     return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
