@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Comment
 from .forms import CommentForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 def all_products(request):
@@ -16,7 +17,8 @@ def product_detail(request, pk):
     not found
     """
     product = get_object_or_404(Product, pk=pk)
-    user = request.user.pk 
+    user_id = request.user.pk 
+    current_user = User.objects.get(user=user_id)
     
     comments = product.comments.filter(active=True)
     new_comment = None
@@ -38,7 +40,7 @@ def product_detail(request, pk):
     product.save()
 
     return render(request, "productdetail.html", {'product': product, 
-                                            'user': user,
+                                            'user': current_user,
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form})
