@@ -31,7 +31,7 @@ def product_detail(request, pk):
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.product = product
-            new_comment.user = user.username
+            new_comment.user = user
             # Save the comment to the database
             new_comment.save()
     else:
@@ -40,7 +40,7 @@ def product_detail(request, pk):
     product.save()
 
     return render(request, "productdetail.html", {'product': product, 
-                                            'user': current_user,
+                                            'user': current_user.username,
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form})
