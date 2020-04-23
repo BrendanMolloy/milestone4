@@ -19,6 +19,7 @@ def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     user_id = request.user.pk 
     current_user = User.objects.get(user=user_id)
+    current_username = current_user.username
     
     comments = product.comments.filter(active=True)
     new_comment = None
@@ -40,7 +41,7 @@ def product_detail(request, pk):
     product.save()
 
     return render(request, "productdetail.html", {'product': product, 
-                                            'user': current_user.username,
+                                            'user': current_username,
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form})
