@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Comment
 from .forms import CommentForm
 
 # Create your views here.
@@ -16,6 +16,7 @@ def product_detail(request, pk):
     not found
     """
     product = get_object_or_404(Product, pk=pk)
+    user = request.user.pk 
     
     comments = product.comments.filter(active=True)
     new_comment = None
