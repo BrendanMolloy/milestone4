@@ -41,7 +41,7 @@ def product_detail(request, pk):
     product.save()
 
     return render(request, "productdetail.html", {'product': product, 
-                                            'user': current_username,
+                                            'user.username': current_username,
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form})
