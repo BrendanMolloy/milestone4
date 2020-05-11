@@ -18,7 +18,7 @@ def product_detail(request, pk):
     """
     product = get_object_or_404(Product, pk=pk)
     user_id = request.user.pk 
-    current_user = User.objects.get(user=user_id)
+    current_user = User.objects.get(id=user_id)
     current_username = current_user.username
     
     comments = product.comments.filter(active=True)
