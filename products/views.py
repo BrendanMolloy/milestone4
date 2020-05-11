@@ -19,7 +19,7 @@ def product_detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     user_id = request.user.pk 
     current_user = User.objects.get(id=user_id)
-    current_username = current_user.username
+    # current_username = current_user.username
     
     comments = product.comments.filter(active=True)
     new_comment = None
@@ -32,7 +32,7 @@ def product_detail(request, pk):
             new_comment = comment_form.save(commit=False)
             # Assign the current post to the comment
             new_comment.product = product
-            new_comment.user = current_user
+            new_comment.user = user_id
             # Save the comment to the database
             new_comment.save()
     else:
