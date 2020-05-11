@@ -17,6 +17,7 @@ def product_detail(request, pk):
     not found
     """
     product = get_object_or_404(Product, pk=pk)
+    user = ForeignKey(User)
     user_id = request.user.pk 
     current_user = User.objects.get(id=user_id)
     # current_username = current_user.username
