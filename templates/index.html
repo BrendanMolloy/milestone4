@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="carousel">
+    <button class="carousel__button carousel__button--left is-hidden">
+        <i class="material-icons">chevron_left</i>
+    </button>
+    <div class="carousel__track-container">
+        <ul class="carousel__track">
+            <li class="carousel__slide current-slide">
+                <img class="carousel__image" src="https://brendans-lootify.s3.amazonaws.com/media/images/1_armor.jpeg" alt="+1 armor">
+            </li>
+            <li class="carousel__slide">
+                <img class="carousel__image" src="https://brendans-lootify.s3.amazonaws.com/media/images/1_sword.png" alt="+1 sword">
+            </li>
+            <li class="carousel__slide">
+                <img class="carousel__image" src="https://brendans-lootify.s3.amazonaws.com/media/images/1_bow.jpeg" alt="+1 bow">
+            </li>
+        </ul>
+    </div> 
+    <button class="carousel__button carousel__button--right">
+        <i class="material-icons">chevron_right</i>
+    </button>
+    <div class="carousel__nav">
+        <button class="carousel__indicator current-slide"></button>
+        <button class="carousel__indicator"></button>
+        <button class="carousel__indicator"></button>
+    </div>
+</div>
+
+<script src="static/js/carousel.js"></script>
+{% endblock %}
