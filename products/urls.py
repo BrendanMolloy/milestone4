@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from .views import all_products, product_detail, homepage
+from .views import all_products, product_detail
 
 urlpatterns = [
     url(r'^$', all_products, name='all_products'),
