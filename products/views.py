@@ -4,8 +4,6 @@ from .forms import CommentForm
 from django.contrib.auth.models import User
 
 # Create your views here.
-def homepage(request):
-    return render(request, "index.html")
 
 def all_products(request):
     products = Product.objects.all()
