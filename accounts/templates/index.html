@@ -1,4 +1,9 @@
 {% extends 'base.html' %}
+
+{% block head_js %}
+<script src="{% static 'carousel.js' %}"></script>
+{% endblock head_js %}
+
 {% block content %}
 <div class="carousel">
     <button class="carousel__button carousel__button--left is-hidden">
@@ -26,6 +31,4 @@
         <button class="carousel__indicator"></button>
     </div>
 </div>
-
-<script src="{% static 'carousel.js' %}"></script>
 {% endblock %}
