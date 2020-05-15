@@ -210,7 +210,7 @@ caption p {
 
 .category {
   position: relative;
-  width: 100%;
+  margin: 5%;
   padding: 5%;
   background: rgba(0, 0, 0, 0.5);
 }
