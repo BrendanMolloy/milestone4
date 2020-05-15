@@ -3,9 +3,9 @@
 
 <div class="welcome">
     <h1>Welcome to Lootify</h1>
-        <p>Lootify is an online store that caters to Live Action Role Players, or LARPers.<br>
-        We provide a number of different products for enthusiasts of the hobby, <br>
-        including, weapons, armors and accessories to really immerse yourself in whatever fantasy world you find yourself in.</p>
+    <p>Lootify is an online store that caters to Live Action Role Players, or LARPers.<br>
+    We provide a number of different products for enthusiasts of the hobby, <br>
+    including, weapons, armors and accessories to really immerse yourself in whatever fantasy world you find yourself in.</p>
 </div>
 
 <div class="carousel">
@@ -34,6 +34,24 @@
         <button class="carousel__indicator"></button>
     </div>
 </div>
+
+<div class="welcome">
+    <h3>View Products by Category:</h3>
+</div>
+
+<div class="row">
+    <div id="weapons" class="category col-sm-12 col-m-6 col-lg-6">
+        <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
+    </div>
+    <div id="armor" class="category col-sm-12 col-m-6 col-lg-6">
+        <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
+    </div>
+    <div id="accessories" class="category col-sm-12 col-m-6 col-lg-6">
+        <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_accessory.png" alt=" view accessories">
+    </div>
+</div>
+
+<a href="{% url 'all_products' %}">View all products..</a>
 
 {% load static %}
 <script src="{% static 'js/carousel.js' %}"></script>

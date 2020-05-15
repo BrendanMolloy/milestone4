@@ -207,3 +207,10 @@ caption p {
 .is-hidden {
     display: none;
 }
+
+.category {
+  position: relative;
+  width: 100%;
+  padding: 5%;
+  background: rgba(0, 0, 0, 0.5);
+}
