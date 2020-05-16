@@ -42,7 +42,9 @@
 <div class="container-fluid">
     <div class="row">
         <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
+            <a href="{% url 'all_products' product.tag|weapon %}"> 
                 <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
+            </a>
         </div>
         <div id="armor" class="category col-sm-4 col-md-4 col-lg-4">
             <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
