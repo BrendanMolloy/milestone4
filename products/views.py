@@ -9,6 +9,18 @@ def all_products(request):
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
 
+def products_weapon(request):
+    products = Product.objects.all(tag='weapon')
+    return render(request, "products.html", {"products": products})
+
+def products_armor(request):
+    products = Product.objects.all(tag='armor')
+    return render(request, "products.html", {"products": products})
+
+def products_accessory(request):
+    products = Product.objects.all(tag='accessory')
+    return render(request, "products.html", {"products": products})
+
 def product_detail(request, pk):
     """
     Create a view that returns a single
