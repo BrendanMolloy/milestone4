@@ -10,7 +10,7 @@ def all_products(request):
     return render(request, "products.html", {"products": products})
 
 def all_weapon_products(request):
-    products = Product.objects.get(tag="weapon")
+    products = Product.objects.filter(tag="weapon")
     return render(request, "products.html", {"products": products})
 
 def product_detail(request, pk):
