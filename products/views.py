@@ -9,7 +9,7 @@ def all_products(request):
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
 
-def all_accesory_products(request):
+def all_accessory_products(request):
     products = Product.objects.filter(tag="accessory")
     return render(request, "products.html", {"products": products})
 
