@@ -9,6 +9,14 @@ def all_products(request):
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
 
+def all_accesory_products(request):
+    products = Product.objects.filter(tag="accessory")
+    return render(request, "products.html", {"products": products})
+
+def all_armor_products(request):
+    products = Product.objects.filter(tag="armor")
+    return render(request, "products.html", {"products": products})
+
 def all_weapon_products(request):
     products = Product.objects.filter(tag="weapon")
     return render(request, "products.html", {"products": products})
