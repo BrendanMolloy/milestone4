@@ -67,6 +67,8 @@ def edit_comment(request):
     """
     view to handle the form for users to edit their comment(s)
     """
+    
+    comment = get_object_or_404(Comment, pk=pk)
     comment_id = request.comment.pk
       
     if request.method == 'POST':
