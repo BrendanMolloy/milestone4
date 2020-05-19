@@ -63,12 +63,12 @@ def product_detail(request, pk):
                                             'user': current_user,})
 
 @login_required(login_url=reverse_lazy("login"))
-def edit_comment(request, pk_alt):
+def edit_comment(request, pk):
     """
     view to handle the form for users to edit their comment(s)
     """
     
-    comment = get_object_or_404(Comment, pk_alt=pk)
+    comment = get_object_or_404(Comment, pk=pk)
     comment_id = request.comment.pk
       
     if request.method == 'POST':
