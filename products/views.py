@@ -58,4 +58,4 @@ def product_detail(request, pk):
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form,
-                                            'current_user': current_user,})
+                                            'user': user,})
