@@ -82,7 +82,7 @@ def edit_comment(request, pk):
             messages.error(request, "Please correct the highlighted errors:")
     else:
         # display the user's current details, if they exist
-        user_comment = Comment.objects.get(body)
+        user_comment = Comment.objects.get(comment=body)
         comment_form = CommentForm(instance=user_comment)
 
     args = {"comment_form": comment_form}
