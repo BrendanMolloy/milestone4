@@ -87,4 +87,4 @@ def edit_comment(request, pk):
 
     args = {"comment_form": comment_form}
     args.update(csrf(request))
-    return render(request, "editcomment.html", args)
+    return render(request, "editcomment.html", {'comment': comment})
