@@ -53,7 +53,7 @@
             {{ comment.user }}
             <span class=" text-muted font-weight-normal">
               {{ comment.created_on }}
-              {{% if user == comment.user %}}
+              {{% if current_user == Comment.user %}}
               <button>edit</button>
               {{% endif %}}
             </span>
