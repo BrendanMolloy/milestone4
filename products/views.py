@@ -59,3 +59,30 @@ def product_detail(request, pk):
                                             'new_comment': new_comment,
                                             'comment_form': comment_form,
                                             'user': current_user,})
+
+@login_required(login_url=reverse_lazy("login"))
+def edit_comment(request):
+    """
+    view to handle the form for users to edit their comment(s)
+    """
+    user_id = request.user.pk
+      
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            # save the new comment - but only if the user tried to change it!
+            details = comment_form.save(commit=False)
+            details.user = request.user
+            try:
+                details.save()
+        else:
+            messages.error(request, "Please correct the highlighted errors:")
+    else:
+        # display the user's current details, if they exist
+        try:
+            user_comment = Comment.objects.get(user=user_id)
+            comment_form = CommentForm(instance=user_profile)
+
+    args = {"comment_form": comment_form}
+    args.update(csrf(request))
+    return render(request, "editcomment.html", args)
