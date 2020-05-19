@@ -57,4 +57,5 @@ def product_detail(request, pk):
     return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
-                                            'comment_form': comment_form})
+                                            'comment_form': comment_form,
+                                            'current_user': current_user,})
