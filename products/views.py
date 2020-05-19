@@ -67,7 +67,7 @@ def edit_comment(request):
     """
     view to handle the form for users to edit their comment(s)
     """
-    user_id = request.user.pk
+    comment_id = request.comment.pk
       
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -80,7 +80,7 @@ def edit_comment(request):
             messages.error(request, "Please correct the highlighted errors:")
     else:
         # display the user's current details, if they exist
-        user_comment = Comment.objects.get(user=user_id)
+        user_comment = Comment.objects.get(comment=comment_id)
         comment_form = CommentForm(instance=user_profile)
 
     args = {"comment_form": comment_form}
