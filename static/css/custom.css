@@ -220,3 +220,10 @@ caption p {
     background: rgba(0, 0, 0, 0.1);
     object-fit: cover;
 }
+
+.carousel-text {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    /*transform: translate(-50%, -50%); */
+}
