@@ -69,7 +69,7 @@ def edit_comment(request, pk):
     """
     
     comment = get_object_or_404(Comment, pk=pk)
-    comment_id = request.comment.pk
+    comment_id = comment.pk
       
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
@@ -82,7 +82,7 @@ def edit_comment(request, pk):
             messages.error(request, "Please correct the highlighted errors:")
     else:
         # display the user's current details, if they exist
-        user_comment = Comment.objects.get(comment=comment_id)
+        user_comment = Comment.objects.get(comment)
         comment_form = CommentForm(instance=user_profile)
 
     args = {"comment_form": comment_form}
