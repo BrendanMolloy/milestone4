@@ -69,7 +69,7 @@ def edit_comment(request, pk):
     """
     
     comment = get_object_or_404(Comment, pk=pk)
-    comment_id = comment.pk
+    comment_id = request.comment.pk
       
     if request.method == 'POST':
         comment_form = CommentForm(request.POST)
