@@ -55,6 +55,7 @@
               {{ comment.created_on }}
               {{% if user = comment.user %}}
               <button>edit</button>
+              {{% endif %}}
             </span>
           </p>
           {{ comment.body | linebreaks }}
