@@ -73,15 +73,13 @@ def edit_comment(request):
             # save the new comment - but only if the user tried to change it!
             details = comment_form.save(commit=False)
             details.user = request.user
-            try:
-                details.save()
+            details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
         # display the user's current details, if they exist
-        try:
-            user_comment = Comment.objects.get(user=user_id)
-            comment_form = CommentForm(instance=user_profile)
+        user_comment = Comment.objects.get(user=user_id)
+        comment_form = CommentForm(instance=user_profile)
 
     args = {"comment_form": comment_form}
     args.update(csrf(request))
