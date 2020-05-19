@@ -53,6 +53,8 @@
             {{ comment.user }}
             <span class=" text-muted font-weight-normal">
               {{ comment.created_on }}
+              {{% if user == comment.user %}}
+              <button>edit</button>
             </span>
           </p>
           {{ comment.body | linebreaks }}
