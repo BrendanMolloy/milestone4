@@ -52,12 +52,13 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
 
-    if Profile.DoesNotExist:
-        return render(request, 'profile.html')
-    else:    
+    try:
         user_id = request.user.pk 
         currentprofile = Profile.objects.get(user=user_id)
         return render(request, 'profile.html', {'profile': currentprofile})
+    except: Profile.DoesNotExist:
+        return render(request, 'profile.html')
+        
 
 
 def register(request):
