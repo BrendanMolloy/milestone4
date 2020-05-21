@@ -56,7 +56,7 @@ def profile(request):
         user_id = request.user.pk 
         currentprofile = Profile.objects.get(user=user_id)
         return render(request, 'profile.html', {'profile': currentprofile})
-    except: Profile.DoesNotExist:
+    except Profile.DoesNotExist:
         return render(request, 'profile.html')
         
 
