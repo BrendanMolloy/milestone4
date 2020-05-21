@@ -61,8 +61,7 @@ def product_detail(request, id):
     return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
-                                            'comment_form': comment_form,
-                                            'user': current_user,})
+                                            'comment_form': comment_form,})
 
 @login_required(login_url=reverse_lazy("login"))
 def edit_comment(request, id, pk):
