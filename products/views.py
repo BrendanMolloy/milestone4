@@ -77,7 +77,7 @@ def edit_comment(request, id, pk):
         comment_form = CommentForm(request.POST, instance=comment)
         if comment_form.is_valid():
             comment_form.save()
-            return redirect(product_detail(product, id))
+            return redirect(all_products)
             # save the new comment - but only if the user tried to change it!
             # details = comment_form.save(commit=False)
             # details.comment = comment
