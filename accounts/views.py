@@ -51,10 +51,8 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-    user_id = request.user.pk 
-    currentprofile = Profile.objects.get(id=user_id)
 
-    if currentprofile.DoesNotExist:
+    if Profile.DoesNotExist:
         return render(request, 'profile.html')
     else:    
         user_id = request.user.pk 
