@@ -106,6 +106,7 @@ def edit_profile(request):
             details.user = request.user
             try:
                 details.save()
+                return redirect(profile)
             except IntegrityError:
                 # this happens if the user already exists (because only one profile is allowed per user)
                 # In other words, the user wants to update their profile. We allow this by specifying
