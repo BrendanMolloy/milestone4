@@ -77,7 +77,7 @@ def edit_comment(request, pk):
         if comment_form.is_valid():
             # save the new comment - but only if the user tried to change it!
             details = comment_form.save(commit=False)
-            details.comment = comment
+            details.body = comment.body
             details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
