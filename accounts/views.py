@@ -56,7 +56,7 @@ def profile(request):
         return render(request, 'profile.html')
     else:    
         user_id = request.user.pk 
-        currentprofile = Profile.objects.get(id=user_id)
+        currentprofile = Profile.objects.get(user=user_id)
         return render(request, 'profile.html', {'profile': currentprofile})
 
 
