@@ -52,7 +52,7 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
     user_id = request.user.pk 
-    currentprofile = Profile.objects.get(user=user_id)
+    currentprofile = Profile.objects.get(id=user_id)
     return render(request, 'profile.html', {'profile': currentprofile})
 
 
