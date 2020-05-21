@@ -8,5 +8,5 @@ urlpatterns = [
     url(r'^weapons/$', all_weapon_products, name='all_weapon_products'),
     url(r'^(?P<id>\d+)/$', product_detail, name='product_detail'),
     url(r'^(?P<id>\d+)/edit_comment/(?P<pk>\d+)/$', edit_comment, name='edit_comment'),
-    url(r'^(?P<id>\d+)/delete_comment/', delete_comment, name='delete_comment'),
+    url(r'^(?P<id>\d+)/delete_comment/(?P<pk>\d+)/$'', delete_comment, name='delete_comment'),
 ]
