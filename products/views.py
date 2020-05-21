@@ -34,7 +34,7 @@ def product_detail(request, id):
     not found
     """
     product = get_object_or_404(Product, pk=id)
-    user = ForeignKey(User)
+    # user = ForeignKey(User)
     user_id = request.user.pk 
     current_user = User.objects.get(id=user_id)
     # current_username = current_user.username
@@ -70,9 +70,6 @@ def edit_comment(request, id, pk):
     view to handle the form for users to edit their comment(s)
     """
     product = get_object_or_404(Product, pk=id)
-    # user = ForeignKey(User)
-    user_id = request.user.pk 
-    current_user = User.objects.get(id=user_id)
 
     comment = get_object_or_404(Comment, pk=pk)
     comment_id = comment.pk
