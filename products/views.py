@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
+from accounts.views import index
 
 # Create your views here.
 
@@ -80,7 +81,7 @@ def edit_comment(request, id, pk):
         comment_form = CommentForm(request.POST, instance=comment)
         if comment_form.is_valid():
             comment_form.save()
-            return redirect(product_detail(product, id))
+            return redirect(index)
             # save the new comment - but only if the user tried to change it!
             # details = comment_form.save(commit=False)
             # details.comment = comment
