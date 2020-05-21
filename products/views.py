@@ -96,7 +96,7 @@ def edit_comment(request, id, pk):
     args.update(csrf(request))
     return render(request, "editcomment.html", args)
 
-def delete_comment(request, pk):
+def delete_comment(request, id, pk):
     comment = get_object_or_404(Comment, pk=pk)
     # POST request
     if request.method == "POST":
