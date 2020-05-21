@@ -113,7 +113,7 @@ def edit_profile(request):
                 # the primary key when saving the model
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
-
+                return redirect(profile)
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
