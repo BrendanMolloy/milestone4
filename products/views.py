@@ -95,3 +95,16 @@ def edit_comment(request, id, pk):
     args = {"comment_form": comment_form}
     args.update(csrf(request))
     return render(request, "editcomment.html", args)
+
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    # POST request
+    if request.method == "POST":
+        # confirming delete
+        comment.delete()
+        return redirect('../../')
+    context = {
+        "object": comment
+    }
+    return render(request, "deletecomment.html", context)
+
