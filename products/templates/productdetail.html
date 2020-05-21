@@ -55,7 +55,7 @@
               {{ comment.created_on }}
               {% if comment.user == user %}
               <a href="{% url 'edit_comment' product.id comment.pk %}"><button>edit</button></a>
-              <button>delete</button>
+              <a href="{% url 'delete_comment' product.id comment.pk %}"><button>delete</button></a>
               {% endif %}
             </span>
           </p>
