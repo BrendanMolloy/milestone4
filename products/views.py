@@ -3,6 +3,7 @@ from .models import Product, Comment
 from .forms import CommentForm
 from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.template.context_processors import csrf
 from django.contrib.auth.models import User
 
 # Create your views here.
