@@ -24,7 +24,7 @@ def all_weapon_products(request):
     products = Product.objects.filter(tag="weapon")
     return render(request, "products.html", {"products": products})
 
-def product_detail(request, pk):
+def product_detail(request, id):
     """
     Create a view that returns a single
     Product object based on the product ID (pk) and
@@ -32,7 +32,7 @@ def product_detail(request, pk):
     Or return a 404 error if the product is
     not found
     """
-    product = get_object_or_404(Product, pk=pk)
+    product = get_object_or_404(Product, pk=id)
     # user = ForeignKey(User)
     user_id = request.user.pk 
     current_user = User.objects.get(id=user_id)
@@ -64,11 +64,15 @@ def product_detail(request, pk):
                                             'user': current_user,})
 
 @login_required(login_url=reverse_lazy("login"))
-def edit_comment(request, pk):
+def edit_comment(request, id, pk):
     """
     view to handle the form for users to edit their comment(s)
     """
-    
+    product = get_object_or_404(Product, pk=id)
+    # user = ForeignKey(User)
+    user_id = request.user.pk 
+    current_user = User.objects.get(id=user_id)
+
     comment = get_object_or_404(Comment, pk=pk)
     comment_id = comment.pk
     
@@ -78,6 +82,8 @@ def edit_comment(request, pk):
             # save the new comment - but only if the user tried to change it!
             details = comment_form.save(commit=False)
             details.comment = comment
+            details.product = product
+            details.user = current_user
             details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
