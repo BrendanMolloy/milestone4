@@ -72,8 +72,8 @@ def edit_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment_id = comment.pk
     
-    if request.method == 'PUT':
-        comment_form = CommentForm(request.PUT)
+    if request.method == 'PATCH':
+        comment_form = CommentForm(request.PATCH)
         if comment_form.is_valid():
             # save the new comment - but only if the user tried to change it!
             details = comment_form.save(commit=False)
