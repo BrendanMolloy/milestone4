@@ -77,15 +77,17 @@ def edit_comment(request, id, pk):
     comment_id = comment.pk
     
     if request.method == 'POST':
-        comment_form = CommentForm(request.POST)
+        comment_form = CommentForm(request.POST, instance=comment)
         if comment_form.is_valid():
+            comment_form.save()
+            return redirect(product_detail)
             # save the new comment - but only if the user tried to change it!
-            details = comment_form.save(commit=False)
-            details.comment = comment
-            details.product = product
-            details.user = current_user
-            details.pk = Comment.objects.get(id=comment_id).pk
-            details.save()
+            # details = comment_form.save(commit=False)
+            # details.comment = comment
+            # details.product = product
+            # details.user = current_user
+            # details.pk = Comment.objects.get(id=comment_id).pk
+            # details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
