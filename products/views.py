@@ -84,6 +84,7 @@ def edit_comment(request, id, pk):
             details.comment = comment
             details.product = product
             details.user = current_user
+            details.pk = Comment.objects.get(id=comment_id).pk
             details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
