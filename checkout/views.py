@@ -7,6 +7,7 @@ from django.conf import settings
 from django.utils import timezone
 from products.models import Product
 from accounts.views import index
+from accounts.models import Profile
 import stripe
 
 # Create your views here.
