@@ -20,6 +20,7 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request):
     user_id = request.user.pk 
     currentprofile = Profile.objects.get(user=user_id)
+    profile_form = ProfileForm(initial = {'full_name':currentprofile.full_name})
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
@@ -66,7 +67,7 @@ def checkout(request):
     
     # auto-fills name and address information if those details have been completed on Profile page
     try:
-        return render(request, "checkout.html", {"order_form": currentprofile, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+        return render(request, "checkout.html", {"order_form": profile_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
         
     except Profile.DoesNotExist:
         return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
