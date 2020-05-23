@@ -33,6 +33,7 @@
         </div>
     </div>
     <!-- comments -->
+    {% if user %}
     <div class="col-md-8 card mb-4  mt-3 ">
       <div class="card-body">
         <h3>Leave a comment</h3>
@@ -43,6 +44,8 @@
         </form>
       </div>
     </div>
+    {% endif %}
+
     <div class="col-md-8 card mb-4  mt-3 ">
       <div class="card-body">
         <h2>{{ comments.count }} comments</h2>
