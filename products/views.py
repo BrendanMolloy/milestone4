@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, Comment
 from .forms import CommentForm
-from django.core.urlresolvers import reverse, reverse_lazy, redirect
+from django.core.urlresolvers import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.template.context_processors import csrf
 from django.contrib.auth.models import User
@@ -56,7 +56,8 @@ def product_detail(request, id):
             comment_form = CommentForm()
 
         product.save()
-        return redirect(request, "productdetail.html", {'product': product, 
+        comment_form = CommentForm()
+        return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form,})
