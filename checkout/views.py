@@ -21,7 +21,14 @@ stripe.api_key = settings.STRIPE_SECRET
 def checkout(request):
     user_id = request.user.pk 
     currentprofile = Profile.objects.get(user=user_id)
-    profile_form = ProfileForm(initial = {'full_name':currentprofile.full_name})
+    profile_form = ProfileForm(initial = {'full_name':currentprofile.full_name,
+                                        'phone_number': currentprofile.phone_number, 
+                                        'country': currentprofile.country, 
+                                        'postcode': currentprofile.postcode,
+                                        'town_or_city': currentprofile.town_or_city, 
+                                        'street_address1': currentprofile.street_address1, 
+                                        'street_address2': currentprofile.street_address2,
+                                        'county': currentprofile.county})
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
