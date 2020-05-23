@@ -10,6 +10,7 @@ from django.utils import timezone
 from products.models import Product
 from accounts.views import index
 from accounts.models import Profile
+from accounts.forms import ProfileForm
 import stripe
 
 # Create your views here.
