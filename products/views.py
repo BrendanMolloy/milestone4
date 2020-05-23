@@ -56,7 +56,7 @@ def product_detail(request, id):
             comment_form = CommentForm()
 
         product.save()
-        comment_form.clear()
+        clear(comment_form)
         return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
