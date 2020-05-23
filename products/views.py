@@ -34,11 +34,11 @@ def product_detail(request, id):
     not found
     """
     product = get_object_or_404(Product, pk=id)
+    comments = product.comments.filter(active=True)
     try:
         user_id = request.user.pk 
         current_user = User.objects.get(id=user_id)
     
-        comments = product.comments.filter(active=True)
         new_comment = None
         # Comment posted
         if request.method == 'POST':
