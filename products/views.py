@@ -34,34 +34,36 @@ def product_detail(request, id):
     not found
     """
     product = get_object_or_404(Product, pk=id)
-    # user = ForeignKey(User)
-    user_id = request.user.pk 
-    current_user = User.objects.get(id=user_id)
-    # current_username = current_user.username
+    try:
+        user_id = request.user.pk 
+        current_user = User.objects.get(id=user_id)
     
-    comments = product.comments.filter(active=True)
-    new_comment = None
-    # Comment posted
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
+        comments = product.comments.filter(active=True)
+        new_comment = None
+        # Comment posted
+        if request.method == 'POST':
+            comment_form = CommentForm(data=request.POST)
+            if comment_form.is_valid():
 
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
-            new_comment.product = product
-            new_comment.user = current_user
-            # Save the comment to the database
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
+                # Create Comment object but don't save to database yet
+                new_comment = comment_form.save(commit=False)
+                # Assign the current post to the comment
+                new_comment.product = product
+                new_comment.user = current_user
+                # Save the comment to the database
+                new_comment.save()
+        else:
+            comment_form = CommentForm()
 
-    product.save()
-
-    return render(request, "productdetail.html", {'product': product, 
+        product.save()
+        return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form,})
+    
+    except User.DoesNotExist:
+        return render(request, "productdetail.html", {'product': product, 
+                                                    'comments': comments})
 
 @login_required(login_url=reverse_lazy("login"))
 def edit_comment(request, id, pk):
