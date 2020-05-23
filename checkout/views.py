@@ -59,4 +59,11 @@ def checkout(request):
         payment_form = MakePaymentForm()
         order_form = OrderForm()
     
-    return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+    # auto-fills name and address information if those details have been completed on Profile page
+    try:
+        user_id = request.user.pk 
+        currentprofile = Profile.objects.get(user=user_id)
+        return render(request, "checkout.html", {"order_form": currentprofile, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+        
+    except Profile.DoesNotExist:
+        return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
