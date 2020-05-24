@@ -17,7 +17,7 @@
 </head>
 <body>
     <!-- Fixed masthead -->
-    <nav class="navbar navbar-masthead navbar-fixed-top">
+    <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -29,6 +29,14 @@
                 <a class="navbar-brand" href="/">Lootify</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
+                <div class="display">
+                    <form action="{% url 'search' %}" method="get">
+                        <input type="text" name="q" placeholder="Search">
+                        <button class="btn btn-default" type="submit">
+                            <i class="material-icons">search</i>
+                        </button>
+                    </form>
+                </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'all_products' %}">All Products</a></li>
                     <li><a href="{% url 'all_accessory_products' %}">Accessories</a></li>
@@ -63,12 +71,7 @@
         </div>
     {% endif %}
     <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
-                <button type="search">Search</button>
-            </form>
-        </div>
+        
         {% block content %} {% endblock %}
     </div>
     <footer>
