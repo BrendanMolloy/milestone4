@@ -165,16 +165,16 @@ caption p {
 
 .carousel__button {
     position: absolute;
-    top: 50%;
+    /*top: 50%; */
     transform: translateY(-50%);
-    height: 5em;
+    height: 20em;
     background: transparent;
     border: 0;
     cursor: pointer;
 }
 
-/*.carousel__button--left {
-    left: -40px;
+/*.carousel__button--left  {
+    left: 40px;
 }
 
 .carousel__button--right {
