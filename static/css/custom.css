@@ -130,7 +130,7 @@ caption p {
 
 .carousel {
     position: relative;
-    height: 50%;
+    height: 20em;
     width: 70%;
     margin: 0 auto;
 }
@@ -138,7 +138,7 @@ caption p {
 .carousel__image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .carousel__track-container {
@@ -167,18 +167,19 @@ caption p {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    height: 5em;
     background: transparent;
     border: 0;
     cursor: pointer;
 }
 
-.carousel__button--left {
+/*.carousel__button--left {
     left: -40px;
 }
 
 .carousel__button--right {
     right: -40px;
-}
+} */
 
 .carousel__button i {
     width: 12px;
