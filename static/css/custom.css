@@ -145,6 +145,7 @@ caption p {
     height: 100%;
     position: relative;
     overflow: hidden;
+    padding: 0%;
 }
 
 .carousel__track {
@@ -168,7 +169,7 @@ caption p {
     /*top: 50%; 
     transform: translateY(-50%);
     height: 20em;*/
-    font-size: 20em;
+    font-size: 10em;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -210,22 +211,23 @@ caption p {
     display: none;
 }
 
-.category {
-  position: relative;
-}
-
-.category img {
-    width: 100%;
-    height: 100%;
-    margin: 5%;
-    padding: 5%;
-    background: rgba(0, 0, 0, 0.1);
-    object-fit: cover;
-}
-
 .carousel-text {
     position: absolute;
     bottom: 10%;
     right: 10%;
     /*transform: translate(-50%, -50%); */
 }
+
+.category {
+  position: relative;
+}
+
+.category img {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    /*padding: 5%;*/
+    background: rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
