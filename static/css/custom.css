@@ -1,7 +1,6 @@
 body {
     font-family: 'Bree Serif', serif;
     padding-top: 100px;
-    background-color: #18121E;
 }
 
 footer {
@@ -10,14 +9,6 @@ footer {
     padding-bottom: 20px;
     border-top: 1px solid #ededed;
     color: #A9A9A9;
-}
-
-.navbar {
-    background-color: #EAC67A;
-}
-
-.input-group-btn {
-    height:38px;
 }
 
 .icon-bar {
