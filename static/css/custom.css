@@ -165,9 +165,10 @@ caption p {
 
 .carousel__button {
     position: absolute;
-    /*top: 50%; */
+    /*top: 50%; 
     transform: translateY(-50%);
-    height: 20em;
+    height: 20em;*/
+    font-size: 25em;
     background: transparent;
     border: 0;
     cursor: pointer;
