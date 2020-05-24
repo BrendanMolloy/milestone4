@@ -12,9 +12,14 @@ footer {
     color: #A9A9A9;
 }
 
+.navbar-brand{
+    margin:0;
+    padding:6px;
+}
+
 .logo {
-    border-radius: 10%;
-    height:50px;
+    border-radius: 15%;
+    height:38px;
     object-fit: contain;
 }
 
