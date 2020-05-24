@@ -252,13 +252,17 @@ caption p {
     left:50%;
     transform: translate(-50%, 50%);
     z-index: 1;
+    color: #fff;
+    text-shadow: 0 0 5px #000;
     visibility:hidden;
 }
 
 .category-image:hover .icon-text {
     visibility:visible;
-    color: #fff
-    text-shadow: 0 0 5px #000;
+    
+}
+
+.category img:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
