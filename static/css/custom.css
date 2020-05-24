@@ -11,6 +11,11 @@ footer {
     color: #A9A9A9;
 }
 
+.logo {
+    border-radius: 10%;
+    object-fit: contain;
+}
+
 .icon-bar {
     background-color: #fff;
 }
