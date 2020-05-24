@@ -175,13 +175,15 @@ caption p {
     cursor: pointer;
 }
 
-/*.carousel__button--left  {
+.carousel__button--left  {
     left: 40px;
+    z-index: 1;
 }
 
 .carousel__button--right {
     right: -40px;
-} */
+    z-index: 1;
+} 
 
 .carousel__button i {
     width: 12px;
