@@ -16,6 +16,10 @@ footer {
     background-color: #EAC67A;
 }
 
+.input-group-btn {
+    height:38px;
+}
+
 .icon-bar {
     background-color: #fff;
 }
