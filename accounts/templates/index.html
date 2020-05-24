@@ -44,19 +44,22 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
-            <a href="{% url 'all_weapon_products' %}"> 
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
+        <div id="accessories" class="category col-sm-4 col-md-4 col-lg-4">
+            <a href="{% url 'all_accessory_products' %}">
+                <img class ="category-image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_accessory.png" alt=" view accessories">
+                <p class="icon-text">Accessories</p>
             </a>
         </div>
         <div id="armor" class="category col-sm-4 col-md-4 col-lg-4">
             <a href="{% url 'all_armor_products' %}">
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
+                <img class ="category-image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
+                <p class="icon-text">Armor</p>
             </a>
         </div>
-        <div id="accessories" class="category col-sm-4 col-md-4 col-lg-4">
-            <a href="{% url 'all_accessory_products' %}">
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_accessory.png" alt=" view accessories">
+        <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
+            <a href="{% url 'all_weapon_products' %}"> 
+                <img class ="category-image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
+                <p class="icon-text">Weapons</p>
             </a>
         </div>
     </div>
