@@ -257,6 +257,9 @@ caption p {
 
 .category-image:hover .icon-text {
     visibility:visible;
+    color: #fff
+    text-shadow: 0 0 5px #000;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 .view-all {
