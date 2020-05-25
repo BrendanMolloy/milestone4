@@ -16,7 +16,7 @@ footer {
 }
 
 .logo {
-    border-radius: 15%;
+    border-radius: 5px;
     height:38px;
     object-fit: contain;
 }
@@ -84,6 +84,7 @@ caption p {
     width: 100%;
     height: auto;
     margin: 10%;
+    border-radius: 5px;
 }
 
 .welcome {
@@ -142,7 +143,7 @@ caption p {
 .carousel {
     position: relative;
     height: 20em;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
 }
 
@@ -229,7 +230,7 @@ caption p {
     position: absolute;
     bottom: 10%;
     right: 10%;
-    font-size: 3em;
+    font-size: 2em;
     color: #fff;
     text-shadow: 0 0 5px #000;
 }
