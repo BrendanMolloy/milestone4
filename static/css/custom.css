@@ -1,6 +1,5 @@
 body {
     font-family: 'Bree Serif', serif;
-    padding-top: 100px;
 }
 
 footer {
@@ -47,6 +46,7 @@ footer {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
+    background-color: white;
     width: 150px;
     height: 150px;
     margin: 0 auto;
