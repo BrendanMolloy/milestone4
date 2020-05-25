@@ -12,7 +12,8 @@ footer {
     color: #A9A9A9;
 }
 
-.navbar-custom {
+.navbar {
+    background-image: none;
     background-color: #EAC67A;
 }
 
