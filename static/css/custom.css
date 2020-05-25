@@ -12,6 +12,10 @@ footer {
     color: #A9A9A9;
 }
 
+.navbar-custom {
+    background-color: #EAC67A;
+}
+
 .navbar-brand{
     margin:0;
     padding:6px;
