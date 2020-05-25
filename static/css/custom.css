@@ -245,7 +245,8 @@ caption p {
     bottom: 10%;
     right: 10%;
     font-size: 3em;
-    /*transform: translate(-50%, -50%); */
+    color: #fff;
+    text-shadow: 0 0 5px #000;
 }
 
 .category {
