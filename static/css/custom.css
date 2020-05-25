@@ -2,6 +2,7 @@ body {
     font-family: 'Bree Serif', serif;
     padding-top: 100px;
     background-color: #fff;
+    color: #18121E;
 }
 
 footer {
@@ -13,8 +14,11 @@ footer {
 }
 
 .navbar-custom {
-    background-image: none;
     background-color: #EAC67A;
+}
+
+.navbar-text {
+    color: #18121E;
 }
 
 .navbar-brand{

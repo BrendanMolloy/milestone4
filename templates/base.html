@@ -31,18 +31,18 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'all_products' %}">All Products</a></li>
-                    <li><a href="{% url 'all_accessory_products' %}">Accessories</a></li>
-                    <li><a href="{% url 'all_armor_products' %}">Armor</a></li>
-                    <li><a href="{% url 'all_weapon_products' %}">Weapons</a></li>
+                    <li class="navbar-text"><a href="{% url 'all_products' %}">All Products</a></li>
+                    <li class="navbar-text"><a href="{% url 'all_accessory_products' %}">Accessories</a></li>
+                    <li class="navbar-text"><a href="{% url 'all_armor_products' %}">Armor</a></li>
+                    <li class="navbar-text"><a href="{% url 'all_weapon_products' %}">Weapons</a></li>
                     {% if user.is_authenticated %}
-                        <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
-                        <li><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        <li class="navbar-text"><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
+                        <li class="navbar-text"><a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
                     {%  else %}
-                        <li><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Register</a></li>
-                        <li><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
+                        <li class="navbar-text"><a href="{% url 'register' %}"><i class="fa fa-user-plus"></i> Register</a></li>
+                        <li class="navbar-text"><a href="{% url 'login' %}"><i class="fa fa-sign-in"></i> Log In</a></li>
                     {% endif %}
-                    <li>
+                    <li class="navbar-text">
                         <a href="{% url 'view_cart' %}">
                             <i class="fa fa-shipping-cart"></i> Cart
                             {% if product_count > 0 %}
