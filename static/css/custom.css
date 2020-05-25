@@ -2,6 +2,10 @@ body {
     font-family: 'Bree Serif', serif;
     padding-top: 100px;
     background-color: #fff;
+    color: #233237;
+}
+
+h1, h2, h3, h4, h5, h6 {
     color: #18121E;
 }
 
@@ -159,7 +163,7 @@ caption p {
 .carousel__image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .carousel__track-container {
