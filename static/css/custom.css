@@ -6,7 +6,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #18121E;
+    color: #984B43;
 }
 
 footer {
@@ -23,6 +23,7 @@ footer {
 
 .navbar-text {
     color: #18121E;
+    margin:0;
 }
 
 .navbar-brand{
