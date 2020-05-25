@@ -1,12 +1,6 @@
 body {
     font-family: 'Bree Serif', serif;
     padding-top: 100px;
-    background-color: #fff;
-    color: #233237;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: #984B43;
 }
 
 footer {
@@ -15,15 +9,6 @@ footer {
     padding-bottom: 20px;
     border-top: 1px solid #ededed;
     color: #A9A9A9;
-}
-
-.navbar-custom {
-    background-color: #EAC67A;
-}
-
-.navbar-text {
-    color: #18121E;
-    margin:0;
 }
 
 .navbar-brand{
