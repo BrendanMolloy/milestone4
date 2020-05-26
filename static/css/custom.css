@@ -235,7 +235,9 @@ caption p {
     right: 10%;
     font-size: 2em;
     color: #fff;
-    text-shadow: 0 0 10px #000;
+    /*text-shadow: 0 0 10px #000;*/
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
 .carousel-subtext {
