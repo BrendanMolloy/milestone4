@@ -275,3 +275,10 @@ caption p {
     text-align: right;
 }
 
+p label {
+    display:none;
+}
+
+#id_body {
+    height: 3em;
+}
