@@ -92,6 +92,7 @@ caption p {
 
 .welcome {
   text-align: center;
+  margin-top: 5px;
   padding-right: 15%;
   padding-left: 15%;
   margin-left: 10%;
@@ -209,7 +210,7 @@ caption p {
 .carousel__nav {
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .carousel__indicator {
