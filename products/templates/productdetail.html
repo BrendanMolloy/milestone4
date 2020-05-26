@@ -5,13 +5,13 @@
         <!--<div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')">
             <p><span class="boldtext">Price:</span>{{ product.price }}</p>
         </div> -->
-        <div class="col-md-2 col-sm-3 text-center">
+        <div class="col-md-6 col-sm-6 text-center">
             <a href="#">
                 <img class="product-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
             </a>
             <p><span class="boldtext">Price:</span> {{ product.price }}</p>
         </div>
-        <div class="col-sm-10 col-md-9">
+        <div class="col-sm-6 col-md-6">
             <h3>{{ product.name }}</h3>
             <form method="post" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
@@ -23,7 +23,7 @@
                     </div>
             </form>
             <div class="row">
-                <div class="col-xs-9">
+                <div class="col-xs-12">
                     <p>{{ product.description }}</p>
 
                     <a href="{% url 'view_cart' %}" class="btn btn-default">View Cart</a>
@@ -34,7 +34,7 @@
     </div>
     <!-- comments -->
     {% if user.is_authenticated %}
-    <div class="col-md-8 card mb-4  mt-3 ">
+    <div class="col-md-8 card mb-4 mt-3">
       <div class="card-body">
         <h3>Leave a comment</h3>
         <form method="post" style="margin-top: 1.3em;">
@@ -46,7 +46,7 @@
     </div>
     {% endif %}
 
-    <div class="col-md-8 card mb-4  mt-3 ">
+    <div class="col-md-8 card mb-4 mt-3">
       <div class="card-body">
         <h2>{{ comments.count }} comments</h2>
 
