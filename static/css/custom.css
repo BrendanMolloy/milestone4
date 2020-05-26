@@ -235,7 +235,11 @@ caption p {
     right: 10%;
     font-size: 2em;
     color: #fff;
-    text-shadow: 0 0 5px #000;
+    text-shadow: 0 0 10px #000;
+}
+
+.carousel-subtext {
+    font-size: .5em;
 }
 
 .category {
@@ -273,7 +277,7 @@ caption p {
 }
 
 .view-all {
-    text-align: right;
+    float: right;
 }
 
 .product-detail {
