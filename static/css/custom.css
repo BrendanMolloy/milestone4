@@ -240,7 +240,7 @@ caption p {
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
-        float: right;
+    text-align: right;
 }
 
 .carousel-subtext {

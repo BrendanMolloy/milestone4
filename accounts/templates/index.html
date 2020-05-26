@@ -63,8 +63,8 @@
         </div>
     </div>
 </div>
-<a href="{% url 'all_products' %}">or view all products here</a>
+<a class="view-all" href="{% url 'all_products' %}">or view all products here</a>
 
 {% load static %}
-<script class="view-all" src="{% static 'js/carousel.js' %}"></script>
+<script src="{% static 'js/carousel.js' %}"></script>
 {% endblock %}
