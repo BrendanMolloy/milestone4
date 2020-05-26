@@ -287,3 +287,8 @@ p label {
 #id_body {
     height: 3em;
 }
+
+.cart-button {
+    margin-top: 5px;
+    float: right;
+}
