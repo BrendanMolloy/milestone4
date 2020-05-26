@@ -235,12 +235,12 @@ caption p {
     right: 10%;
     font-size: 2em;
     color: #fff;
-    /*text-shadow: 0 0 10px #000;*/
     text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+        float: right;
 }
 
 .carousel-subtext {
