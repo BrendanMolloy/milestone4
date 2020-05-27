@@ -9,7 +9,7 @@ it is an e-commerce website created to display my skills with Full Stack Framewo
 This website sells props and outfits that cater to Live Action Role Players (LARPers).<br>
 LARP is a form of role-playing game where the participants in real life physically portray their characters.<br>
 While many players opt to craft their own outfits, some prefer to outright purchase these items, whether due to lack of craft-ability, time, or otherwise.
----
+
 
 ## UX
 
