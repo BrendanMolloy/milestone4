@@ -148,7 +148,7 @@ def delete_profile(request):
     if request.method == "POST":
         user.delete()
         #redirects back to the associated product's page
-        return redirect('index.html')
+        return redirect(reverse('index'))
     context = {
         "object": user
     }
