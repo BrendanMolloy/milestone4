@@ -109,6 +109,8 @@ displaying any comments previously left by other users, ordering them by time an
 * Links/buttons were tested to ensure they redirected to the correct pages.
 * Travis-CI was used as a continuous integration to perform tests with each git commit
 * The Django framework returned error messages whenever there was a conflict in logic
+* Used https://validator.w3.org/nu/ to validate HTML and CSS code
+* Used http://beautifytools.com/javascript-validator.php to validate JS
 
 ### Known Bugs
 * adding null value quantity of a product to cart returns an error.

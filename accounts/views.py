@@ -122,6 +122,7 @@ def edit_profile(request):
                 # where they can now view the info they've uploaded.
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
+                messages.error(request, "You successfully updated your profile")
                 return redirect(profile)
         else:
             messages.error(request, "Please correct the highlighted errors:")
@@ -137,3 +138,18 @@ def edit_profile(request):
     args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
     return render(request, "editprofile.html", args)
+
+def delete_profile(request):
+    """
+    This view renders the deleteprofile page where the user must confirm that they wish to delete their user/profile
+    """
+    #requests comment by pk
+    user = request.user
+    if request.method == "POST":
+        user.delete()
+        #redirects back to the associated product's page
+        return redirect('index.html')
+    context = {
+        "object": user
+    }
+    return render(request, "deleteprofile.html", context)
