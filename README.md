@@ -1,37 +1,129 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+
+# Lootify
 
 [![Build Status](https://travis-ci.org/BrendanMolloy/milestone4.svg?branch=master)](https://travis-ci.org/BrendanMolloy/milestone4)
 
-Welcome BrendanMolloy,
+Lootify is my fourth Milestone Project. <br>
+it is an e-commerce website created to display my skills with Full Stack Frameworks.<br>
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+This website sells props and outfits that cater to Live Action Role Players (LARPers).<br>
+LARP is a form of role-playing game where the participants in real life physically portray their characters.<br>
+While many players opt to craft their own outfits, some prefer to outright purchase these items, whether due to lack of craft-ability, time, or otherwise.
+---
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Lootify was created using the Django, Bootstrap, and Materialize frameworks.<br>
+The Superhero theme found at https://bootswatch.com/ was used to create a coherent color scheme. <br>
+Many of the pages found on the website are procedurally generated using the database of products, profiles, and comments.
 
-`python3 -m http.server`
+### User Stories:
 
-A blue button should appear to click: *Expose*,
+* As a LARPer with little crafting skill, I want to purchase some armor, so that I can wear it to an upcoming game.
+* As a LARPer who prefers to make their own props, I want to view the weapons sold online, so that I can get some inspiration for a weapon of my own design.
+* As a fan of fantasy media, I want to purchase some medieval-themed tchotchkes, so that I can decorate my home with them.
 
-Another blue button should appear to click: *Open Browser*.
+### Wireframes:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<!-- ![](/images/wireframes-index.png) -->
 
-A blue button should appear to click: *Expose*,
+With Index.html I wanted to create a landing page that would help to orient the user. <br>
+The carousel is the feature element of the page, and as such is used to display "featured content". <br>
+This code could be modified to instead feature different products, and draw attention to any future sales that may occur.
+<br>
+I have also included icons for the three categories of products that are sold on the site.<br>
+In case the icons themselves are unclear to the user, hovering the cursor over them reveals the category's name.<br>
+Clicking on any of these icons will redirect to a pge displaying all products in that category.<br>
 
-Another blue button should appear to click: *Open Browser*.
+<!-- ![](/images/wireframes-products.png) -->
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+Using Materialize panels, and bootstrap flexbox, 
+I've created clean and consistent layout to display the products available on the site.<br>
+Clicking on either the product's image or name will direct the user to another page with further detail for that product.<br>
+However, they can equally add the desired quantity of that product to their cart from the products page.
 
-## Updates Since The Instructional Video
+<!-- ![](/images/wireframes-productdetail.png) -->
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+Again, taing advantage of the bootstrap flexbox, I've created a layout that re-sizes itself to fit different displays.
+For viewports of a small size or larger, the product's image takes up a large portion of the screen, 
+while the text and form elements accompany it to its side.
+The comment section then features at the bottom, 
+displaying any comments previously left by other users, ordering them by time and date posted.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+## Features
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Existing Features
 
---------
+* Navbar  
+    lists links to the home page, the all products, accessories, armor, weapons, and cart pages.
+    it also lists context-sensitive links to login, logout, register, or profile pages.
+    A searchbar is embedded within the navbar that allows the user to search for specific products by name.
+* Carousel
+    an interactive display of the featured products, linking to the relevant product pages.
+    created using js, the content itself can be modified to instead highlight future sales, or other announcements.
+* Profile 
+    Users must create an account in order to complete a purchase for any product.
+    However, creating an account allows users to update their information to auto-complete the order-form, rather than re-typing their address info for every transaction.
+    Being logged in also allows users to post comments to specific product pages.
+* Cart 
+    By adding quantities of products to the cart, the site can keep track of the products they wish to purchase.
+    Users can review their cart to amend quantities of the products they wish to purchase.
+* Checkout 
+    Displays the cart's contents as a visual conirmation for the user that they are proceeding with the correct purchase.
+    Contains two forms, one for shipping details; name, address, etc. and one for the financial transaction, powered using Stripe API
+* Comments 
+    Users can leave comments on product pages, such as their reviews or an expression of interest.
+    The comment form will only display is user is logged in, but existing comments will display for everyone.
+    Similarly, links to edit/delete the comment will only appear if the current user matches the user who left the comment. 
+    The edit comment page will display the existing comment as is, and allows the user to update the text.
+    The delete page is a confirmation page for the user so that they don't accidentally delete a comment.
 
-Happy coding!
+### Features Left to Implement
+
+* error messages for the submission of incomplete forms
+* a change password page. This is presently handled by the editprofile page, but is not the most user-friendly experience, as that page contains two separate forms.
+* a sorting function for the products pages (alphabetically, price-ascending, price-descending)
+* pagination of the products pages, particularly, the all_products page, as this page contain >10 products.
+
+### Technologies Used
+
+* HTML  
+    Used to put a basic structure on the web pages
+* CSS  
+    Used to customize formatting and style
+* JS  
+    custom javascript was used to create the carousel on index.html
+* Bootstrap  
+    For styling, layout
+* Materialize  
+    For styling purposes, particularly, the panel layouts used for the products
+* Django  
+    For database management, and page templates
+* Stripe API  
+    For handling the financial transactions
+* Python  
+    
+## Testing
+
+* Testing was caried out on multiple browsers, includin Chrome, Firefox and Explorer, at multiple resolutions to ensure that formatting remained consistent.
+* Links/buttons were tested to ensure they redirected to the correct pages.
+* Travis-CI was used as a continuous integration to perform tests with each git commit
+* The Django framework returned error messages whenever there was a conflict in logic
+
+### Known Bugs
+* adding null value quantity of a product to cart returns an error.
+
+### Fixed Bugs
+* formatting bugs, typically arising due to the inclusion of margin values in custom.css, depsite using bootstrap flexbox
+
+## Deployment
+
+This project is deployed on Heroku, and can be visited at the following url:  
+    https://lootify.herokuapp.com/
+
+A development version was hosted on gitpod. 
+
+## Credits
+Aaron Sinnott, my mentor at Code Institute, for his advice during development
+
+Josh Molloy, my brother, for providing an additional pair of eyes, and far too much patience
