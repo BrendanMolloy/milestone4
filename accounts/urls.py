@@ -6,6 +6,7 @@ urlpatterns = [
     url(r'^register/$', register, name='register'),
     url(r'^profile/$', profile, name='profile'),
     url(r'^profile/edit/$', edit_profile, name='edit_profile'),
+    url(r'^profile/change_password_or_email/$', edit_profile, name='change_password_or_email'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^login/$', login, name='login'),
     url(r'^password-reset/', include(urls_reset)),
