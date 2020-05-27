@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 # Create your views here.
@@ -18,7 +19,7 @@ def add_to_cart(request, id):
         return redirect(reverse('index'))
     except ValueError:
         messages.error(request, "Please correct the highlighted errors:")
-        return redirect('../')
+        return HttpResponseRedirect("")
 
 
 def adjust_cart(request, id):
