@@ -65,8 +65,7 @@ def product_detail(request, id):
         comment_form = CommentForm()
         return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
-                                            'new_comment': new_comment,
-                                            'comment_form': comment_form,})
+                                            'new_comment': new_comment,})
     #renders the productdetail page without the comment form if user is not logged in
     except User.DoesNotExist:
         return render(request, "productdetail.html", {'product': product, 
