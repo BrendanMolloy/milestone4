@@ -2,11 +2,13 @@
 
 {% block content %}
     <div class="row product-detail">
+        <!-- Product image -->
         <div class="col-md-5 col-sm-6 text-center">
             <a href="#">
                 <img class="product-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
             </a>
         </div>
+        <!-- Product info -->
         <div class="col-sm-6 col-md-6">
             <h3>{{ product.name }}</h3>
             <p><span class="boldtext">Price:</span> {{ product.price }}</p>
@@ -34,6 +36,7 @@
     <div class="col-md-12 card mb-4 mt-3">
       <div class="card-body">
         <h3>Leave a comment</h3>
+        <!-- Comment Form-->
         <form method="post" style="margin-top: 1.3em;">
           {{ comment_form.as_p }}
           {% csrf_token %}
@@ -46,13 +49,14 @@
     <div class="col-md-8 card mb-4 mt-3">
       <div class="card-body">
         <h2>{{ comments.count }} comments</h2>
-
+        <!-- Existing Comments -->
         {% for comment in comments %}
         <div class="comments" style="padding: 10px;">
           <p class="font-weight-bold">
             {{ comment.user }}
             <span class=" text-muted font-weight-normal">
               {{ comment.created_on }}
+              <!-- edit/delete comment buttons will only display if logged in as the user who posted the comment -->
               {% if comment.user == user %}
               <a href="{% url 'edit_comment' product.id comment.pk %}"><button>edit</button></a>
               <a href="{% url 'delete_comment' product.id comment.pk %}"><button>delete</button></a>

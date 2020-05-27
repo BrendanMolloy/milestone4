@@ -10,88 +10,88 @@ from accounts.views import index
 # Create your views here.
 
 def all_products(request):
+    """displays all products"""
     products = Product.objects.all()
     return render(request, "products.html", {"products": products})
 
 def all_accessory_products(request):
+    """displays all products with the 'accessory' tag"""
     products = Product.objects.filter(tag="accessory")
     return render(request, "products.html", {"products": products})
 
 def all_armor_products(request):
+    """displays all products with the 'armor' tag"""
     products = Product.objects.filter(tag="armor")
     return render(request, "products.html", {"products": products})
 
 def all_weapon_products(request):
+    """displays all products with the 'weapon' tag"""
     products = Product.objects.filter(tag="weapon")
     return render(request, "products.html", {"products": products})
 
 def product_detail(request, id):
     """
     Create a view that returns a single
-    Product object based on the product ID (pk) and
+    Product object based on the product ID and
     render it to the 'productdetail.html' template.
     Or return a 404 error if the product is
     not found
     """
+    #requests the current product
     product = get_object_or_404(Product, pk=id)
-    comments = product.comments.filter(active=True)
+    #requests all comments associated with current product
+    comments = product.comments
     try:
+        #requests current user's id
         user_id = request.user.pk 
+        #requests current user
         current_user = User.objects.get(id=user_id)
     
         new_comment = None
-        # Comment posted
         if request.method == 'POST':
             comment_form = CommentForm(data=request.POST)
             if comment_form.is_valid():
-
                 # Create Comment object but don't save to database yet
                 new_comment = comment_form.save(commit=False)
-                # Assign the current post to the comment
+                # Assign the current product to the comment
                 new_comment.product = product
+                # Assign the current user to the comment
                 new_comment.user = current_user
                 # Save the comment to the database
                 new_comment.save()
         else:
             comment_form = CommentForm()
-
         product.save()
         comment_form = CommentForm()
         return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
                                             'new_comment': new_comment,
                                             'comment_form': comment_form,})
-    
+    #renders the productdetail page without the comment form if user is not logged in
     except User.DoesNotExist:
         return render(request, "productdetail.html", {'product': product, 
                                                     'comments': comments})
 
 @login_required(login_url=reverse_lazy("login"))
-def edit_comment(request, id, pk):
+def edit_comment(request, pk):
     """
-    view to handle the form for users to edit their comment(s)
+    This view allows users to edit their comment
     """
-    product = get_object_or_404(Product, pk=id)
-
+    #requests comment by pk
     comment = get_object_or_404(Comment, pk=pk)
+    #assigns comment's pk to a variable
     comment_id = comment.pk
     
     if request.method == 'POST':
         comment_form = CommentForm(request.POST, instance=comment)
         if comment_form.is_valid():
             comment_form.save()
+            #redirects back to the associated product's page
             return redirect('../../')
-            # save the new comment - but only if the user tried to change it!
-            # details = comment_form.save(commit=False)
-            # details.comment = comment
-            # details.product = product
-            # details.user = current_user
-            # details.pk = Comment.objects.get(id=comment_id).pk
-            # details.save()
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
-        # display the user's current details, if they exist
+        # display the current comment details as they exist
         user_comment = Comment.objects.get(id=comment_id)
         comment_form = CommentForm(instance=user_comment)
 
@@ -99,12 +99,15 @@ def edit_comment(request, id, pk):
     args.update(csrf(request))
     return render(request, "editcomment.html", args)
 
-def delete_comment(request, id, pk):
+def delete_comment(request, pk):
+    """
+    This view renders the deletecomment page where the user must confirm that they wish to delete their comment
+    """
+    #requests comment by pk
     comment = get_object_or_404(Comment, pk=pk)
-    # POST request
     if request.method == "POST":
-        # confirming delete
         comment.delete()
+        #redirects back to the associated product's page
         return redirect('../../')
     context = {
         "object": comment
