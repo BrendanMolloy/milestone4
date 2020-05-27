@@ -12,11 +12,20 @@ from accounts.views import index
 
 def all_products(request):
     """displays all products"""
-    products = Product.objects.all()
-    paginator = Paginator(products, 9)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, "products.html", {'page_obj': page_obj})
+    products_list = Product.objects.all()
+    paginator = Paginator(products_list, 9)
+    # page_number = request.GET.get('page')
+    # page_obj = paginator.get_page(page_number)
+    try:
+        page = int(request.GET.get('page','1'))
+    except:
+        page = 1
+
+    try:
+        products = paginator.page(page)
+    except(EmptyPage, InvalidPage):
+        products = paginator.page(paginator.num_pages)
+    return render(request, "products.html", {'products': products})
 
 def all_accessory_products(request):
     """displays all products with the 'accessory' tag"""
