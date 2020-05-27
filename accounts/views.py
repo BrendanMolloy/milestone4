@@ -97,8 +97,21 @@ def edit_profile(request):
     user_id = request.user.pk
       
     if request.method == 'POST':
+        baseform = UserUpdateForm(request.POST, user=request.user)
         profile_form = ProfileForm(request.POST)
-        if profile_form.is_valid():
+        if baseform.is_valid() and profile_form.is_valid():
+            # save the new email and/or password - but only if the user tried to change it!
+            data = baseform.cleaned_data
+            if baseform.fields["email"].has_changed(request.user.email, data["email"]):
+                request.user.email = data["email"]
+                request.user.save()
+            if (baseform.fields["current_password"].has_changed(None, data["current_password"])
+                or baseform.fields["new_password1"].has_changed(None, data["new_password1"])
+                or baseform.fields["new_password2"].has_changed(None, data["new_password2"])):
+                request.user.set_password(data["new_password1"])
+                request.user.save()
+                update_session_auth_hash(request, request.user)
+            # save the profile details and redirects to profile.html
             details = profile_form.save(commit=False)
             details.user = request.user
             try:
@@ -119,38 +132,8 @@ def edit_profile(request):
             profile_form = ProfileForm(instance=user_profile)
         except Profile.DoesNotExist:
             profile_form = ProfileForm()
-
-    args = {"profile_form": profile_form}
-    args.update(csrf(request))
-    return render(request, "editprofile.html", args)
-
-@login_required(login_url=reverse_lazy("login"))
-def change_email_or_password(request):
-    """
-    view to handle the form for users to change their email address or password
-    """
-    #retrieves the current user
-    user_id = request.user.pk
-      
-    if request.method == 'POST':
-        baseform = UserUpdateForm(request.POST, user=request.user)
-        if baseform.is_valid():
-            # save the new email and/or password - but only if the user tried to change it!
-            data = baseform.cleaned_data
-            if baseform.fields["email"].has_changed(request.user.email, data["email"]):
-                request.user.email = data["email"]
-                request.user.save()
-            if (baseform.fields["current_password"].has_changed(None, data["current_password"])
-                or baseform.fields["new_password1"].has_changed(None, data["new_password1"])
-                or baseform.fields["new_password2"].has_changed(None, data["new_password2"])):
-                request.user.set_password(data["new_password1"])
-                request.user.save()
-                update_session_auth_hash(request, request.user)
-        else:
-            messages.error(request, "Please correct the highlighted errors:")
-    else:
         baseform = UserUpdateForm(initial={"email": request.user.email})
 
-    args = {"base_form": baseform}
+    args = {"base_form": baseform, "profile_form": profile_form}
     args.update(csrf(request))
-    return render(request, "change_email_or_password.html", args)
+    return render(request, "editprofile.html", args)
