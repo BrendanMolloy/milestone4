@@ -146,14 +146,6 @@ def change_email_or_password(request):
                 request.user.set_password(data["new_password1"])
                 request.user.save()
                 update_session_auth_hash(request, request.user)
-            # save the profile details and redirects to profile.html
-            details = baseform.save(commit=False)
-            details.user = request.user
-            try:
-                details.save()
-                return redirect(profile)
-            except IntegrityError:
-                return redirect(profile)
         else:
             messages.error(request, "Please correct the highlighted errors:")
     else:
