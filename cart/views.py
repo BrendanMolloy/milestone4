@@ -18,7 +18,7 @@ def add_to_cart(request, id):
         return redirect(reverse('index'))
     except ValueError:
         messages.error(request, "Please correct the highlighted errors:")
-        return redirect(reverse('index'))
+        return redirect('../')
 
 
 def adjust_cart(request, id):
