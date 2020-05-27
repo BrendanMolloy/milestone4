@@ -147,7 +147,7 @@ def change_email_or_password(request):
                 request.user.save()
                 update_session_auth_hash(request, request.user)
             # save the profile details and redirects to profile.html
-            details = base_form.save(commit=False)
+            details = baseform.save(commit=False)
             details.user = request.user
             try:
                 details.save()
