@@ -11,11 +11,9 @@ from accounts.views import index
 # Create your views here.
 
 def all_products(request):
-    """displays all products"""
+    """displays all products, applying pagination"""
     products_list = Product.objects.all()
-    paginator = Paginator(products_list, 9)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
+    paginator = Paginator(products_list, 9) # limits number of products to 9 per page
     try:
         page = int(request.GET.get('page','1'))
     except:

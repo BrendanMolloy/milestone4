@@ -79,12 +79,13 @@ displaying any comments previously left by other users, ordering them by time an
     The delete page is a confirmation page for the user so that they don't accidentally delete a comment.
 * Messages
     Messages will appear near the top of the viewport upon the successful or unssuccesful submission of forms.
+* Pagination
+    the all_products page lists >10 products, to make content more digestible this is limited to 9 products per page.
 
 ### Features Left to Implement
 
 * a change password page. This is presently handled by the editprofile page, but is not the most user-friendly experience, as that page contains two separate forms.
 * a sorting function for the products pages (alphabetically, price-ascending, price-descending)
-* pagination of the products pages, particularly, the all_products page, as this page contain >10 products.
 * Contact form
 * Email Order Confirmation
 
