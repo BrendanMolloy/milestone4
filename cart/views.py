@@ -10,16 +10,12 @@ def view_cart(request):
 
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
-    try:
-        quantity = int(request.POST.get('quantity'))
-        cart = request.session.get('cart', {})
-        cart[id] = cart.get(id, quantity)
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+    cart[id] = cart.get(id, quantity)
 
-        request.session['cart'] = cart
-        return redirect(reverse('index'))
-    except ValueError:
-        messages.error(request, "Please correct the highlighted errors:")
-        return HttpResponseRedirect("")
+    request.session['cart'] = cart
+    return redirect(reverse('index'))
 
 
 def adjust_cart(request, id):
