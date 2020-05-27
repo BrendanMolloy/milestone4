@@ -65,17 +65,19 @@ def product_detail(request, id):
         comment_form = CommentForm()
         return render(request, "productdetail.html", {'product': product, 
                                             'comments': comments,
-                                            'new_comment': new_comment,})
+                                            'new_comment': new_comment,
+                                            'comment_form': comment_form,})
     #renders the productdetail page without the comment form if user is not logged in
     except User.DoesNotExist:
         return render(request, "productdetail.html", {'product': product, 
                                                     'comments': comments})
 
 @login_required(login_url=reverse_lazy("login"))
-def edit_comment(request, pk):
+def edit_comment(request, id, pk):
     """
     This view allows users to edit their comment
     """
+    product = get_object_or_404(Product, pk=id)
     #requests comment by pk
     comment = get_object_or_404(Comment, pk=pk)
     #assigns comment's pk to a variable
@@ -98,7 +100,7 @@ def edit_comment(request, pk):
     args.update(csrf(request))
     return render(request, "editcomment.html", args)
 
-def delete_comment(request, pk):
+def delete_comment(request, id, pk):
     """
     This view renders the deletecomment page where the user must confirm that they wish to delete their comment
     """
