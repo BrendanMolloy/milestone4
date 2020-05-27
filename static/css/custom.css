@@ -11,6 +11,7 @@ footer {
     color: #A9A9A9;
 }
 
+/* ------- navbar ------ */
 .navbar-brand{
     margin:0;
     padding:3px;
@@ -20,14 +21,6 @@ footer {
     border-radius: 5px;
     height:36px;
     object-fit: contain;
-}
-
-.icon-bar {
-    background-color: #fff;
-}
-
-.accountform {
-    padding-top: 20px;
 }
 
 .badge {
@@ -43,105 +36,20 @@ footer {
     background-color: #c67605;
 }
 
-.product {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: white;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    border-radius: 5px;
-}
-
-caption p {
-    word-wrap: break-word;
-}
-
-.row.row-flex {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.panel-default {
-    border-color: transparent;
-    padding: 0px;
-    border-left: 10px solid #253e50; /* preserves bootstrap styling while adding breathing space between product panels*/
-    border-right: 10px solid #253e50; /* preserves bootstrap styling while adding breathing space between product panels*/
-}
-
-.panel-body {
-    height: 100%;
-}
-
-.product-description {
-    min-height: 40px;
-}
-
-.boldtext {
-    font-weight: bold;
-}
-
-.product-image {
-    width: 100%;
-    height: auto;
-    background-color: white;
-    border-radius: 5px;
-}
-
+/* ------ index.html ------ */
 .welcome {
   text-align: center;
   padding: 15px;
   margin-left: 10%;
   margin-right: 10%;
   background:#df691a;
-  /*background: #8d9dad;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  -webkit-animation: fadein 3s;
-  /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 3s;
-  /* Firefox < 16 */
-  -ms-animation: fadein 3s;
-  /* Internet Explorer */
-  -o-animation: fadein 3s;
-  /* Opera < 12.1 */
-  animation: fadein 3s;
 }
 
-
-@keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
-/* Opera < 12.1 */
-@-o-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-}
-
+/* ------ carousel ------ */
 .carousel {
     position: relative;
     height: 20em;
@@ -181,9 +89,6 @@ caption p {
 
 .carousel__button {
     position: absolute;
-    /*top: 50%; 
-    transform: translateY(-50%);
-    height: 20em;*/
     font-size: 10em;
     background: transparent;
     border: 0;
@@ -247,6 +152,7 @@ caption p {
     font-size: .5em;
 }
 
+/* ------ category icons ------ */
 .category {
   position: relative;
 }
@@ -255,7 +161,6 @@ caption p {
     width: 90%;
     height: 90%;
     margin: 5%;
-    /*padding: 5%;*/
     background: #8d9dad;
     object-fit: cover;
 }
@@ -285,18 +190,68 @@ caption p {
     float: right;
 }
 
+/* ------ products.html ------ */
+.product {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+caption p {
+    word-wrap: break-word;
+}
+
+.row.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.panel-default {
+    border-color: transparent;
+    padding: 0px;
+    border-left: 10px solid #253e50; /* preserves bootstrap styling while adding breathing space between product panels*/
+    border-right: 10px solid #253e50; /* preserves bootstrap styling while adding breathing space between product panels*/
+}
+
+.panel-body {
+    height: 100%;
+}
+
+.product-description {
+    min-height: 40px;
+}
+
+/* ------ productdetail.html ------ */
+.boldtext {
+    font-weight: bold;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
 .product-detail {
     padding-top: 40px;
 }
 
 p label {
-    display:none;
+    display:none; /* hides 'Body:' that appears before the Comments box */
 }
 
 #id_body {
-    height: 3em;
+    height: 3em; /* sets the height of the Comments box */
 }
 
+/* ------ cart.html ------ */
 .cart-button {
     margin-top: 5px;
     float: right;
