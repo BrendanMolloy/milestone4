@@ -3,6 +3,10 @@ from products.models import Product
 
 # Create your models here.
 class Order(models.Model):
+    """
+    The Order model stores information about the user's name, phone number and address 
+    to assist in the delivery of products
+    """
     full_name = models.CharField(max_length=50, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
@@ -18,6 +22,9 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """
+    The Order Line Item model breaks down the product(s) and quantity that the user is ordering
+    """
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)

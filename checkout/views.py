@@ -19,8 +19,15 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+    """
+    The checkout view pulls information from the Order and MakePayment forms to process a transaction
+    It is also used to render the checkout.html page, displaying cart info and profile details if they exist
+    """
+    #requests current user
     user_id = request.user.pk 
+    #restrieves the Profile info of the current user
     currentprofile = Profile.objects.get(user=user_id)
+    #condenses Profile info to a single variable
     profile_form = ProfileForm(initial = {'full_name':currentprofile.full_name,
                                         'phone_number': currentprofile.phone_number, 
                                         'country': currentprofile.country, 
@@ -57,6 +64,7 @@ def checkout(request):
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id']
                 )
+            # Provides various messages to user dependent on success of order
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
             
