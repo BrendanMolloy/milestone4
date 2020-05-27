@@ -122,7 +122,7 @@ def edit_profile(request):
                 # where they can now view the info they've uploaded.
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
-                messages.error(request, "You successfully updated your profile")
+                messages.success(request, "You successfully updated your profile")
                 return redirect(profile)
         else:
             messages.error(request, "Please correct the highlighted errors:")
@@ -143,11 +143,11 @@ def delete_profile(request):
     """
     This view renders the deleteprofile page where the user must confirm that they wish to delete their user/profile
     """
-    #requests comment by pk
+    #requests the current user
     user = request.user
     if request.method == "POST":
         user.delete()
-        #redirects back to the associated product's page
+        #redirects back to the home page
         return redirect(reverse('index'))
     context = {
         "object": user
