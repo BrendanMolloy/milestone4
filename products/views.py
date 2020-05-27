@@ -20,7 +20,6 @@ def all_products(request):
         page = int(request.GET.get('page','1'))
     except:
         page = 1
-
     try:
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
