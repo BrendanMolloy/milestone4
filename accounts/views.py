@@ -51,12 +51,15 @@ def login(request):
 @login_required
 def profile(request):
     """A view that displays the profile page of a logged in user"""
-
     try:
-        user_id = request.user.pk 
-        currentprofile = Profile.objects.get(user=user_id)
-        return render(request, 'profile.html', {'profile': currentprofile})
+        #retrieves the current user
+        user_id = request.user.pk  
+        #retrieves the Profile object associated with current user
+        currentprofile = Profile.objects.get(user=user_id) 
+        #renders profile.html with the Profile info of the current user
+        return render(request, 'profile.html', {'profile': currentprofile}) 
     except Profile.DoesNotExist:
+        #renders profile.html without Profile information, typically because user has not yet filled in their profile information
         return render(request, 'profile.html')
         
 
@@ -87,8 +90,10 @@ def register(request):
 @login_required(login_url=reverse_lazy("login"))
 def edit_profile(request):
     """
-    view to handle the form for users to enter/edit their profile
+    view to handle the form for users to enter/edit their profile information
     """
+    
+    #retrieves the current user
     user_id = request.user.pk
       
     if request.method == 'POST':
@@ -106,16 +111,15 @@ def edit_profile(request):
                 request.user.set_password(data["new_password1"])
                 request.user.save()
                 update_session_auth_hash(request, request.user)
-            # save the profile details (location and max_distance)
+            # save the profile details and redirects to profile.html
             details = profile_form.save(commit=False)
             details.user = request.user
             try:
                 details.save()
                 return redirect(profile)
             except IntegrityError:
-                # this happens if the user already exists (because only one profile is allowed per user)
-                # In other words, the user wants to update their profile. We allow this by specifying
-                # the primary key when saving the model
+                # updates the user's Profile info and redirects them back their profile page
+                # where they can now view the info they've uploaded.
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
                 return redirect(profile)
