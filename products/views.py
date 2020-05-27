@@ -40,7 +40,7 @@ def product_detail(request, id):
     #requests the current product
     product = get_object_or_404(Product, pk=id)
     #requests all comments associated with current product
-    comments = product.comments
+    comments = product.comments.filter(active=True)
     try:
         #requests current user's id
         user_id = request.user.pk 
