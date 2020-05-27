@@ -77,55 +77,81 @@ displaying any comments previously left by other users, ordering them by time an
     Similarly, links to edit/delete the comment will only appear if the current user matches the user who left the comment. 
     The edit comment page will display the existing comment as is, and allows the user to update the text.
     The delete page is a confirmation page for the user so that they don't accidentally delete a comment.
+* Messages
+    Messages will appear near the top of the viewport upon the successful or unssuccesful submission of forms.
 
 ### Features Left to Implement
 
-* error messages for the submission of incomplete forms
 * a change password page. This is presently handled by the editprofile page, but is not the most user-friendly experience, as that page contains two separate forms.
 * a sorting function for the products pages (alphabetically, price-ascending, price-descending)
 * pagination of the products pages, particularly, the all_products page, as this page contain >10 products.
+* Contact form
+* Email Order Confirmation
 
 ### Technologies Used
 
-* HTML  
+* [HTML](https://html.com/)  
     Used to put a basic structure on the web pages
-* CSS  
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)  
     Used to customize formatting and style
-* JS  
+* [JS](https://www.javascript.com/)  
     custom javascript was used to create the carousel on index.html
-* Bootstrap  
+* [Bootstrap](https://getbootstrap.com/)
     For styling, layout
-* Materialize  
+* [Materialize](https://materializecss.com/)  
     For styling purposes, particularly, the panel layouts used for the products
-* Django  
+* [Django](https://www.djangoproject.com/)  
     For database management, and page templates
-* Stripe API  
+* [Stripe API](https://stripe.com/ie)  
     For handling the financial transactions
-* Python  
+* [Python](https://www.python.org/)  
     
 ## Testing
 
 * Testing was caried out on multiple browsers, includin Chrome, Firefox and Explorer, at multiple resolutions to ensure that formatting remained consistent.
-* Links/buttons were tested to ensure they redirected to the correct pages.
 * Travis-CI was used as a continuous integration to perform tests with each git commit
 * The Django framework returned error messages whenever there was a conflict in logic
 * Used https://validator.w3.org/nu/ to validate HTML and CSS code
 * Used http://beautifytools.com/javascript-validator.php to validate JS
 
+
 ### Known Bugs
-* adding null value quantity of a product to cart returns an error.
+* None at present
 
 ### Fixed Bugs
 * formatting bugs, typically arising due to the inclusion of margin values in custom.css, depsite using bootstrap flexbox
+* adding null value quantity of a product to cart now returns a warning mesage to the user.
 
 ## Deployment
-
 This project is deployed on Heroku, and can be visited at the following url:  
     https://lootify.herokuapp.com/
 
-A development version was hosted on gitpod. 
+To host this project on Heroku, a requirements.txt and Procfile was created, listing required applications for the project.
+Config Vars had to uploaded to the Heroku dashboard, including 
+AWS_SECRET_ACCESS_KEY, AWS_SECRET_KEY_ID, DATABASE_URL, SECRET_KEY, STRIPE_PUBLISHABLE, STRIPE_SECRET.
+These allowed the project to access databases from external sources. 
+During the development process the values for these variables were held in an env.py file, 
+which had been set to be .gitignored and thus kept their sensitive information secret.
+
+A development version of the project was hosted on gitpod. 
+
+Code was regularly committed to github repository to prevent the loss of data.
+Following the implementation of covid-19 restrictions I took several weeks off from the course, 
+such that when I returned to complete the project, 
+the workspace I had been using was deleted from the gitpod servers due to inactivity.
+Thanks to my diligent commits to github, the only data lost was the env.py file 
+which was easily recreated using the config vars saved to Heroku.
+
+Static files were deployed to a bucket on Amazon Web Service using S3 buckets.
+
+To run the code locally, you will need to generate your own config vars in order to populate the site with products,
+and to allow for Stripe functionality.
 
 ## Credits
+### Media
+* The images used for the products on this site were obtained from https://www.medievalcollectibles.com/
+
+### Acknowledgements
 Aaron Sinnott, my mentor at Code Institute, for his advice during development
 
-Josh Molloy, my brother, for providing an additional pair of eyes, and far too much patience
+Josh Molloy, my brother, for providing an additional pair of eyes, and assistance in resolving multiple bugs

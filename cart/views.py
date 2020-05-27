@@ -15,7 +15,7 @@ def add_to_cart(request, id):
         cart[id] = cart.get(id, quantity)
 
         request.session['cart'] = cart
-        return redirect(reverse('index'))
+        return redirect(request.META['HTTP_REFERER'])
     except ValueError:
         messages.error(request, "Cannot add a null value quantity to the cart")
         return redirect(request.META['HTTP_REFERER'])
