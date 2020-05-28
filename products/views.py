@@ -36,7 +36,7 @@ def all_accessory_products(request):
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
-    return render(request, "products.html", {'products': products}
+    return render(request, "products.html", {'products': products})
 
 def all_armor_products(request):
     """displays all products with the 'armor' tag"""
@@ -50,7 +50,7 @@ def all_armor_products(request):
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
-    return render(request, "products.html", {'products': products}
+    return render(request, "products.html", {'products': products})
 
 def all_weapon_products(request):
     """displays all products with the 'weapon' tag"""
@@ -64,7 +64,7 @@ def all_weapon_products(request):
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
-    return render(request, "products.html", {'products': products}
+    return render(request, "products.html", {'products': products})
 
 def product_detail(request, id):
     """
