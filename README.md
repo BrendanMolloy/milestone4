@@ -25,7 +25,7 @@ Many of the pages found on the website are procedurally generated using the data
 
 ### Wireframes:
 
-<!-- ![](/images/wireframes-index.png) -->
+![](https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/Wireframe+-+Index.png)
 
 With Index.html I wanted to create a landing page that would help to orient the user. <br>
 The carousel is the feature element of the page, and as such is used to display "featured content". <br>
@@ -35,14 +35,14 @@ I have also included icons for the three categories of products that are sold on
 In case the icons themselves are unclear to the user, hovering the cursor over them reveals the category's name.<br>
 Clicking on any of these icons will redirect to a pge displaying all products in that category.<br>
 
-<!-- ![](/images/wireframes-products.png) -->
+![](https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/Wireframe+-+All+Products.png)
 
 Using Materialize panels, and bootstrap flexbox, 
 I've created clean and consistent layout to display the products available on the site.<br>
 Clicking on either the product's image or name will direct the user to another page with further detail for that product.<br>
 However, they can equally add the desired quantity of that product to their cart from the products page.
 
-<!-- ![](/images/wireframes-productdetail.png) -->
+![](https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/Wireframe+-+Product+detail.png)
 
 Again, taing advantage of the bootstrap flexbox, I've created a layout that re-sizes itself to fit different displays.
 For viewports of a small size or larger, the product's image takes up a large portion of the screen, 
