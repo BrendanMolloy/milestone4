@@ -11,7 +11,7 @@
                 </a>
                 <h3><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h3>
                 <p class="product-description">{{ product.description }}</p>
-                <p class="glyphicon glyphicon-euro">{{ product.price }}</p>
+                <p class="glyphicon glyphicon-euro"> € {{ product.price }}</p>
         <!-- Product form -->
                 <form method="post" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}

@@ -55,12 +55,12 @@ def profile(request):
         #retrieves the current user
         user_id = request.user.pk  
         #retrieves the Profile object associated with current user
-        currentprofile = Profile.objects.get(user=user_id) 
+        currentprofile = Profile.objects.get(user=user_id) #
         #renders profile.html with the Profile info of the current user
         return render(request, 'profile.html', {'profile': currentprofile}) 
     except Profile.DoesNotExist:
         #renders profile.html without Profile information, typically because user has not yet filled in their profile information
-        return render(request, 'profile.html')
+        return render(request, 'profile.html') #
         
 
 
