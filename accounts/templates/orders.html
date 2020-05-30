@@ -8,7 +8,7 @@
         <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
         <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
     </div>
-    {% if order.user == user %}
+    {% if order_line_items.user == user %}
     {% for OrderLineItem in order_line_items %}
     <div class="row row-flex">
         <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
