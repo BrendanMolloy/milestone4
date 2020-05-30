@@ -10,7 +10,7 @@
     </div>
     
     {% for OrderLineItem in order_line_items %}
-    {% if order_line_item.user == user %}
+    {% if OrderLineItem.user == user %}
     <div class="row row-flex">
         <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
         <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
