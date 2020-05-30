@@ -9,7 +9,7 @@
     {% for OrderLineItem in order_line_items %}
     <div class="row row-flex">
         <div class="co-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
-        <div class="co-sm-3 col-md-3">{{ OrderLineItem.product }}</div>
+        <div class="co-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
         <div class="col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
     </div>
     {% endfor %}
