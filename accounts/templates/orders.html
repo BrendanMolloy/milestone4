@@ -2,7 +2,7 @@
 {% load bootstrap_tags %}
 {% block content %}
     <h2>Order History</h2>
-    {% for order in orders %}
+    {% for order in orders.object_list %}
     <div class="row">
         <div class="col-sm-2 col-md-2">{{ order.date }}</div>
         <div class="co-sm-6 col-md-6">{{ order.product }}</div>
