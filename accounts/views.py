@@ -7,6 +7,7 @@ from django.template.context_processors import csrf
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from checkout.models import Order, OrderLineItem
 
 
 # Create your views here.
