@@ -156,4 +156,5 @@ def delete_profile(request):
 
 def orders(request):
     """A view that displays the orders page"""
-    return render(request, "orders.html")
+    orders = Orders.objects.all()
+    return render(request, "orders.html", {'orders': orders})
