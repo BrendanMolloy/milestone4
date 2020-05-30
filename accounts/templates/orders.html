@@ -5,8 +5,8 @@
     <div class="row">
     {% for order in orders %}
         <div class="col-sm-2 col-md-2">{{ order.date }}</div> 
-        <div class="co-sm-6 col-md-6">{{ order.date }}</div>
-        <div class="col-sm-2 col-md-6">{{ order.OrderLineItem.quantity }}</div>
+        <div class="co-sm-6 col-md-6">{{ order.product }}</div>
+        <div class="col-sm-2 col-md-6">{{ OrderLineItem.quantity }}</div>
     {% endfor %}
     </div>
     
