@@ -84,7 +84,7 @@ def checkout(request):
             order_form = OrderForm()
         
         # auto-fills name and address information if those details have been completed on Profile page
-        return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+    return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
         
     
-       
+        
