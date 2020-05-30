@@ -32,7 +32,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'all_products' %}">All Products</a></li>
-                    <li><a href="{% url 'all_accessory_products' 'accessory' %}">Accessories</a></li>
+                    <li><a href="{% url 'all_accessory_products' %}">Accessories</a></li>
                     <li><a href="{% url 'all_armor_products' %}">Armor</a></li>
                     <li><a href="{% url 'all_weapon_products' %}">Weapons</a></li>
                     {% if user.is_authenticated %}
