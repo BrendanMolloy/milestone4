@@ -2,20 +2,18 @@
 {% load bootstrap_tags %}
 {% block content %}
     <h2>Order History</h2>
+    <div class="row">
+        <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Date</div>
+        <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
+        <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
+    </div>
     {% for OrderLineItem in order_line_items %}
         {% if OrderLineItem.order.user == user %}
-            <div class="row">
-                <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Date</div>
-                <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
-                <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
-            </div>
             <div class="row row-flex">
                 <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
                 <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
                 <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
             </div>
-        {% else %}
-            <h3>There appear to be no orders here.</h3>
         {% endif %}
     {% endfor %}
 {% endblock %}
