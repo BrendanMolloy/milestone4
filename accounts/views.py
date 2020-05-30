@@ -153,3 +153,7 @@ def delete_profile(request):
         "object": user
     }
     return render(request, "deleteprofile.html", context)
+
+def orders(request):
+    """A view that displays the orders page"""
+    return render(request, "orders.html")

@@ -12,6 +12,7 @@
     <p><span class="boldtext text-primary">Street Address 2:</span> {{ profile.street_address2 }}</p>
     <p><span class="boldtext text-primary">County:</span> {{ profile.county }}</p>
 
+    <a href="{% url 'orders' %}"  class="btn btn-default">View Orders</a>
     <a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
     <a href="{% url 'delete_profile' %}"  class="btn btn-default">Delete profile</a>
 {% endblock %}
