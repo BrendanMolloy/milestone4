@@ -38,7 +38,7 @@ def checkout(request):
                                             'street_address2': currentprofile.street_address2,
                                             'county': currentprofile.county})
     except Profile.DoesNotExist:    
-        order_form = order_form
+        order_form = None
     if request.method == "POST":
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
