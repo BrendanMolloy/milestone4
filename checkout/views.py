@@ -36,7 +36,7 @@ def checkout(request):
                                             'town_or_city': currentprofile.town_or_city, 
                                             'street_address1': currentprofile.street_address1, 
                                             'street_address2': currentprofile.street_address2,
-                                            'county': currentprofile.county
+                                            'county': currentprofile.county,
                                             'user': user_id})
         if request.method == "POST":
             order_form = OrderForm(request.POST)
