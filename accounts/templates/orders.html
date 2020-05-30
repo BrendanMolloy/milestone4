@@ -3,10 +3,11 @@
 {% block content %}
     <h2>Order History</h2>
     <div class="row row-flex">
-    {% for order in orders %}
+    <!--{% for order in orders %}
         <div class="col-sm-2 col-md-2">{{ order.date }}</div> 
-    {% endfor %}
+    {% endfor %}-->
     {% for OrderLineItem in order_line_items %}
+        <div class="co-sm-6 col-md-6">{{ OrderLineItem.order.date }}</div>
         <div class="co-sm-6 col-md-6">{{ OrderLineItem.product }}</div>
         <div class="col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
     {% endfor %}
