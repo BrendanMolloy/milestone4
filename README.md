@@ -114,7 +114,7 @@ displaying any comments previously left by other users, ordering them by time an
 * The Django framework returned error messages whenever there was a conflict in logic
 * Used https://validator.w3.org/nu/ to validate HTML and CSS code
 * Used http://beautifytools.com/javascript-validator.php to validate JS
-* A markdown of test cases can be found [here] (https://github.com/BrendanMolloy/milestone4/blob/1c7b984e9ffb72defa1a17b2920f607c87003f97/test_cases.md)
+* A markdown of test cases can be found [here](https://github.com/BrendanMolloy/milestone4/blob/1c7b984e9ffb72defa1a17b2920f607c87003f97/test_cases.md)
 
 
 ### Known Bugs
