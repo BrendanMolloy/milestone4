@@ -12,8 +12,8 @@
             <!-- {% for OrderLineItem in order_line_items %} -->
                 <div class="row row-flex display panel panel-default">
                     <div class="col-xs-2 col-sm-2 col-md-2">{{ order.date }}</div>
-                    <div class="col-xs-5 col-sm-4 col-md-3">{{ order.order_line_items.product }}</div>
-                    <div class="col-xs-2 col-sm-2 col-md-2">   {{ order.order_line_items.quantity }}</div>
+                    <div class="col-xs-5 col-sm-4 col-md-3">{{ order.OrderLineItem.product }}</div>
+                    <div class="col-xs-2 col-sm-2 col-md-2">   {{ order.OrderLineItem.quantity }}</div>
                 </div>
            <!-- {% endfor %} -->
         {% endif %}
