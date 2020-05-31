@@ -40,7 +40,7 @@
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Payment Details</legend>
 <!-- will display error message if any errors arise -->
-    <div id="credit-card-errors" style="display: none;">
+    <div id="credit-card-errors"> <!-- style="display: none;" --> 
         <div id="alert-message block-message error" id="stripe-error-message"></div>
     </div>
 <!-- order form, will populate with profile info if they have already been uploaded -->
