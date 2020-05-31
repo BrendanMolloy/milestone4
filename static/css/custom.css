@@ -177,15 +177,13 @@ footer {
     visibility:hidden;
 }
 
-.category-image:hover .icon-text {
+.category:hover .icon-text {
     visibility:visible;
-    background: rgba(0, 0, 0, 0.3);
-    
 }
 
-/* .category img:hover {
+.category img:hover {
     background: rgba(0, 0, 0, 0.3);
-} */
+}
 
 .view-all {
     float: right;
