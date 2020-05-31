@@ -7,7 +7,7 @@
         <div class="boldtext text-primary col-xs-5 col-sm-4 col-md-3">Product</div>
         <div class="boldtext text-primary col-xs-2 col-sm-2 col-md-2">Quantity</div>
     </div>
-    {% for order in orders %}
+    {% for order in order_line_items.order %}
         {% if order.user == user %}
             <!-- {% for OrderLineItem in order_line_items %} -->
                 <div class="row row-flex display panel panel-default">
