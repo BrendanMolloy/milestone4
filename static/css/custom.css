@@ -181,11 +181,7 @@ footer {
     visibility:visible;
 }
 
-.category img:hover {
-    background: rgba(0, 0, 0, 0.3);
-}
-
-p:hover ~ img {
+.category img:hover, p:hover ~ img  {
     background: rgba(0, 0, 0, 0.3);
 }
 
