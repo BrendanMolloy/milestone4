@@ -11,10 +11,8 @@
         {% if OrderLineItem.order.user == user %}
             <div class="row row-flex display panel panel-default">
                 <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.order.date }}</div>
-                {% for OrderLineItem.order in order_line_items %}
-                    <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
-                    <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
-                {% endfor %}
+                <div class="col-xs-5 col-sm-4 col-md-3">{{ OrderLineItem.product }}</div>
+                <div class="col-xs-2 col-sm-2 col-md-2">{{ OrderLineItem.quantity }}</div>
             </div>
         {% endif %}
     {% endfor %}
