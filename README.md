@@ -8,13 +8,16 @@ it is an e-commerce website created to display my skills with Full Stack Framewo
 
 This website sells props and outfits that cater to Live Action Role Players (LARPers).<br>
 LARP is a form of role-playing game where the participants in real life physically portray their characters.<br>
-While many players opt to craft their own outfits, some prefer to outright purchase these items, whether due to lack of craft-ability, time, or otherwise.
-
+While many players opt to craft their own outfits, some prefer to outright purchase these items, whether due to lack of craft-ability, time, or otherwise.<br>
+Lootify offers a wide range of products, which are made easier to browse through by being split into categories.<br>
+Whether you're looking for a an impressive set of armor, a convincing-looking prop-sword, or a stylish bag, lootify has it all.
 
 ## UX
 
 Lootify was created using the Django, Bootstrap, and Materialize frameworks.<br>
 The Superhero theme found at https://bootswatch.com/ was used to create a coherent color scheme. <br>
+The Bree Serif font was used to evoke a sense of tradition, history, reliability, 
+which speak to the nature of the products and the quality of the service. <br>
 Many of the pages found on the website are procedurally generated using the database of products, profiles, and comments.
 
 ### User Stories:
@@ -69,8 +72,11 @@ displaying any comments previously left by other users, ordering them by time an
     By adding quantities of products to the cart, the site can keep track of the products they wish to purchase.
     Users can review their cart to amend quantities of the products they wish to purchase.
 * Checkout 
-    Displays the cart's contents as a visual conirmation for the user that they are proceeding with the correct purchase.
+    Displays the cart's contents as a visual confirmation for the user that they are proceeding with the correct purchase.
     Contains two forms, one for shipping details; name, address, etc. and one for the financial transaction, powered using Stripe API
+* Orders
+    Displays all previous orders made by the user, providing additional confirmation that their order was successful.
+    Provides details of the order's date, the product purchased, and the quantity that was purchased.
 * Comments 
     Users can leave comments on product pages, such as their reviews or an expression of interest.
     The comment form will only display is user is logged in, but existing comments will display for everyone.

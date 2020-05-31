@@ -29,7 +29,7 @@ def checkout(request):
     try:
         currentprofile = Profile.objects.get(user=user_id)
         #condenses Profile info to a single variable
-        profile_form = ProfileForm(initial = {'full_name':currentprofile.full_name,
+        order_form = ProfileForm(initial = {'full_name':currentprofile.full_name,
                                             'phone_number': currentprofile.phone_number, 
                                             'country': currentprofile.country, 
                                             'postcode': currentprofile.postcode,
@@ -88,7 +88,7 @@ def checkout(request):
             order_form = OrderForm()
         
         # auto-fills name and address information if those details have been completed on Profile page
-        return render(request, "checkout.html", {"order_form": profile_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+        return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
         
     except Profile.DoesNotExist:
         if request.method == "POST":
