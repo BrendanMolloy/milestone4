@@ -39,10 +39,10 @@
 
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Payment Details</legend>
-<!-- will display error message if any errors arise -->
-    <div id="credit-card-errors"> <!-- style="display: none;" --> 
+<!-- will display error message if any errors arise 
+    <div id="credit-card-errors">  style="display: none;" 
         <div id="alert-message block-message error" id="stripe-error-message"></div>
-    </div>
+    </div> -->
 <!-- order form, will populate with profile info if they have already been uploaded -->
     <div class="form-group col-md-6">
         {{ order_form | as_bootstrap }}
