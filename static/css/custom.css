@@ -179,12 +179,13 @@ footer {
 
 .category-image:hover .icon-text {
     visibility:visible;
+    background: rgba(0, 0, 0, 0.3);
     
 }
 
-.category img:hover, .icon-text:hover .category img{
+/* .category img:hover {
     background: rgba(0, 0, 0, 0.3);
-}
+} */
 
 .view-all {
     float: right;
