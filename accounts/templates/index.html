@@ -62,14 +62,14 @@
             </a>
         </div>
         <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
-            <a class ="category-image" href="{% url 'all_products' %}?tag=armor"> 
+            <a class ="category-image" href="{% url 'all_products' tag='armor' %}"> 
                 <p class="icon-text">Weapons</p>
                 <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
             </a>
         </div>
     </div>
 </div>
-<a class="view-all" href="{% url 'all_products' tag='' %}">or view all products here</a>
+<a class="view-all" href="{% url 'all_products' %}">or view all products here</a>
 
 {% load static %}
 <script src="{% static 'js/carousel.js' %}"></script>
