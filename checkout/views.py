@@ -28,7 +28,7 @@ def checkout(request):
     #restrieves the Profile info of the current user
     if Profile.objects.filter(user=user_id).exists():
         #condenses Profile info to a single variable
-        currentprofile = Profile.objects.filter(user=user_id)
+        currentprofile = Profile.objects.get(user=user_id)
         form = ProfileForm(initial = {'full_name':currentprofile.full_name,
                                             'phone_number': currentprofile.phone_number, 
                                             'country': currentprofile.country, 
