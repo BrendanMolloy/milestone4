@@ -181,7 +181,7 @@ footer {
     visibility:visible;
 }
 
-.category img:hover, p:hover ~ img  {
+.category img:hover, p:hover ~ img  { /* have to specify both selectors, or highlight will drop when hovering over text */
     background: rgba(0, 0, 0, 0.3);
 }
 
