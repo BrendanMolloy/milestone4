@@ -16,16 +16,16 @@ def all_products(request, tag):
         products_list = Product.objects.filter(tag=tag)
     else:
         products_list = Product.objects.all().order_by('name')
-        paginator = Paginator(products_list, 9) # limits number of products to 9 per page
-        try:
-            page = int(request.GET.get('page','1'))
-        except:
-            page = 1
-        try:
-            products = paginator.page(page)
-        except(EmptyPage, InvalidPage):
-            products = paginator.page(paginator.num_pages)
-        return render(request, "products.html", {'products': products})
+    paginator = Paginator(products_list, 9) # limits number of products to 9 per page
+    try:
+        page = int(request.GET.get('page','1'))
+    except:
+        page = 1
+    try:
+        products = paginator.page(page)
+    except(EmptyPage, InvalidPage):
+        products = paginator.page(paginator.num_pages)
+    return render(request, "products.html", {'products': products})
 
 def all_accessory_products(request):
     """displays all products with the 'accessory' tag"""
