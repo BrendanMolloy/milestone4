@@ -13,7 +13,7 @@ from accounts.views import index
 def all_products(request, tag):
     """displays all products, applying pagination"""
     if tag:
-        products_list = Product.objects.filter(tag)
+        products_list = Product.objects.filter(tag=tag)
     else:
         products_list = Product.objects.all().order_by('name')
         paginator = Paginator(products_list, 9) # limits number of products to 9 per page
