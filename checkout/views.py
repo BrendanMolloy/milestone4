@@ -72,7 +72,6 @@ def checkout(request):
             # Provides various messages to user dependent on success of order
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-                print("Your card was declined!")
             
             if customer.paid:
                 messages.error(request, "Your Order was Successful")
@@ -80,11 +79,9 @@ def checkout(request):
                 return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to take payment")
-                print("Unable to take a payment")
         else:
             print(payment_form.errors)
             messages.error(request, "We were unable to take a payment with that card!")
-            print("We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
