@@ -41,9 +41,9 @@ def all_accessory_products(request):
         products = paginator.page(paginator.num_pages)
     return render(request, "products.html", {'products': products})
 
-def all_armor_products(request):
+def all_armor_products(request, tag):
     """displays all products with the 'armor' tag"""
-    products_list = Product.objects.filter(tag="armor")
+    products_list = Product.objects.filter(tag=tag)
     paginator = Paginator(products_list, 9) # limits number of products to 9 per page
     try:
         page = int(request.GET.get('page','1'))

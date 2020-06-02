@@ -33,7 +33,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{% url 'all_products' %}">All Products</a></li>
                     <li><a href="{% url 'all_accessory_products' %}">Accessories</a></li>
-                    <li><a href="{% url 'all_armor_products' %}">Armor</a></li>
+                    <li><a href="{% url 'all_armor_products' tag='armor' %}">Armor</a></li>
                     <li><a href="{% url 'all_weapon_products' %}">Weapons</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="{% url 'profile' %}"><i class="fa fa-user"></i> Profile</a></li>
