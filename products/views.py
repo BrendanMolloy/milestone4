@@ -41,7 +41,7 @@ def all_accessory_products(request):
         products = paginator.page(paginator.num_pages)
     return render(request, "products.html", {'products': products})
 
-def all_armor_products(request, tag):
+def all_armor_products(request):
     """displays all products with the 'armor' tag"""
     products_list = Product.objects.filter(tag=tag)
     paginator = Paginator(products_list, 9) # limits number of products to 9 per page
@@ -53,7 +53,7 @@ def all_armor_products(request, tag):
         products = paginator.page(page)
     except(EmptyPage, InvalidPage):
         products = paginator.page(paginator.num_pages)
-    return render(request, "products.html", {'products': products, 'tag': tag})
+    return render(request, "products.html", {'products': products})
 
 def all_weapon_products(request):
     """displays all products with the 'weapon' tag"""
