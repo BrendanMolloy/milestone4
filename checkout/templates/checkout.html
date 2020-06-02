@@ -14,15 +14,6 @@
 {% endblock head_js %}
 
 {% block content %}
-    {% if messages %}
-        <div class="alert alert-success">
-            <div class="messages">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
-        </div>
-    {% endif %}
 <div class="row row-flex">
 <!-- displays all the items currently in the cart -->
     {% for item in cart_items %}
