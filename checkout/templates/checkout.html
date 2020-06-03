@@ -47,14 +47,14 @@
     <div class="form-group col-md-6">
         {{ payment_form | as_bootstrap }}
     </div>
+<!-- will display error message if any errors arise -->
+    <div class="credit-card-errors alert">
+        <div class="alert-message block-message error" id="stripe-error-message" style="background-color:#df691a; color:white;"></div>
+    </div>
 <!-- submit forms -->
     {% csrf_token %}
     <div class="form-group col-md-12">
         <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
-    </div>
-<!-- will display error message if any errors arise -->
-    <div class="credit-card-errors alert">
-        <div class="alert-message block-message error" id="stripe-error-message" style="background-color:#df691a; color:white;"></div>
     </div>
 </form>
 {% endblock %}
