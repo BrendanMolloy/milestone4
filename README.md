@@ -124,17 +124,13 @@ displaying any comments previously left by other users, ordering them by time an
 
 
 ### Known Bugs
-* Error message does not display for a failed payment. 
-Prevailing theory is that the code used is from an outdated version of Stripe.
-This code was copied directly from the Django V1 e-commerce source code from the course material.
-I worked with my mentor, and 6 member of the tutor team to reach a solution without success.
-Of note, is that within the if-else loop of the checkout view, nothing will print to the console, unless there is a successful payment.
-Due to an impending deadline, and the reassurance from student support that I would not need to upgrade my project from Django V1 to Django V3,
-have decided not to make that switch at the risk of corrupting data elsewhere on the site.
+* none at present
 
 ### Fixed Bugs
 * formatting bugs, typically arising due to the inclusion of margin values in custom.css, depsite using bootstrap flexbox
 * adding null value quantity of a product to cart now returns a warning mesage to the user.
+* error messages on checkout.html; sought the help of my mentor and tutor team regarding the lack of error messages for stripe payments.
+Ultimately, it was Stephen who pointed out that the messages were displaying. But due to poor styling, no one had noticed them appear on the page.
 
 ## Deployment
 This project is deployed on Heroku, and can be visited at the following url:  
@@ -167,5 +163,7 @@ and to allow for Stripe functionality.
 
 ### Acknowledgements
 Aaron Sinnott, my mentor at Code Institute, for his advice during development
+
+What must have been the whole tutor team over the course of development, and in particular with me error message bug.
 
 Josh Molloy, my brother, for providing an additional pair of eyes, and assistance in resolving multiple bugs
