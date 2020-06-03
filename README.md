@@ -127,7 +127,7 @@ displaying any comments previously left by other users, ordering them by time an
 * Error message does not display for a failed payment. 
 Prevailing theory is that the code used is from an outdated version of Stripe.
 This code was copied directly from the Django V1 e-commerce source code from the course material.
-I worked with my mentor, and 6 member of the tutor team to reach a solution.
+I worked with my mentor, and 6 member of the tutor team to reach a solution without success.
 Of note, is that within the if-else loop of the checkout view, nothing will print to the console, unless there is a successful payment.
 Due to an impending deadline, and the reassurance from student support that I would not need to upgrade my project from Django V1 to Django V3,
 have decided not to make that switch at the risk of corrupting data elsewhere on the site.
