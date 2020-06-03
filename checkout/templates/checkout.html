@@ -40,8 +40,8 @@
 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
     <legend>Payment Details</legend>
 <!-- will display error message if any errors arise -->
-    <div class="credit-card-errors alert" >
-        <div class="alert-message block-message error col-xs-12 col-sm-12 col-md-12" id="stripe-error-message" style="background-color:#df691a; color:white; justify-content:centre;"></div>
+    <div class="credit-card-errors alert" style="text-align:centre">
+        <div class="alert-message block-message error" id="stripe-error-message" style="background-color:#df691a; color:white;"></div>
     </div>
 <!-- order form, will populate with profile info if they have already been uploaded -->
     <div class="form-group col-md-6">
