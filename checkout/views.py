@@ -20,24 +20,30 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     """
-    The checkout view pulls information from the Order and MakePayment forms to process a transaction
-    It is also used to render the checkout.html page, displaying cart info and profile details if they exist
+    The checkout view pulls information from the Order and MakePayment forms
+    to process a transaction.
+    It is also used to render the checkout.html page,
+    displaying cart info and profile details if they exist.
     """
-    #requests current user
-    user_id = request.user.pk 
-    #restrieves the Profile info of the current user
+    # requests current user
+    user_id = request.user.pk
+    # restrieves the Profile info of the current user
     if Profile.objects.filter(user=user_id).exists():
-        #condenses Profile info to a single variable
+        # condenses Profile info to a single variable
         currentprofile = Profile.objects.get(user=user_id)
-        form = ProfileForm(initial = {'full_name':currentprofile.full_name,
-                                            'phone_number': currentprofile.phone_number, 
-                                            'country': currentprofile.country, 
-                                            'postcode': currentprofile.postcode,
-                                            'town_or_city': currentprofile.town_or_city, 
-                                            'street_address1': currentprofile.street_address1, 
-                                            'street_address2': currentprofile.street_address2,
-                                            'county': currentprofile.county,
-                                            'user': user_id})
+        form = ProfileForm(initial={'full_name': currentprofile.full_name,
+                                    'phone_number':
+                                    currentprofile.phone_number,
+                                    'country': currentprofile.country,
+                                    'postcode': currentprofile.postcode,
+                                    'town_or_city':
+                                    currentprofile.town_or_city,
+                                    'street_address1':
+                                    currentprofile.street_address1,
+                                    'street_address2':
+                                    currentprofile.street_address2,
+                                    'county': currentprofile.county,
+                                    'user': user_id})
     else:
         form = OrderForm
     if request.method == "POST":
@@ -61,7 +67,7 @@ def checkout(request):
                     quantity=quantity
                 )
                 order_line_item.save()
-            
+
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
@@ -72,7 +78,7 @@ def checkout(request):
             # Provides various messages to user dependent on success of order
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-            
+
             if customer.paid:
                 messages.error(request, "Your Order was Successful")
                 request.session['cart'] = {}
@@ -81,10 +87,14 @@ def checkout(request):
                 messages.error(request, "Unable to take payment")
         else:
             print(payment_form.errors)
-            messages.error(request, "We were unable to take a payment with that card!")
+            messages.error(request,
+                           "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
         order_form = OrderForm()
-    
-    # auto-fills name and address information if those details have been completed on Profile page
-    return render(request, "checkout.html", {"order_form": form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+
+    # auto-fills name and address information
+    # if those details have been completed on Profile page
+    return render(request, "checkout.html",
+                  {"order_form": form, "payment_form": payment_form,
+                   "publishable": settings.STRIPE_PUBLISHABLE})
