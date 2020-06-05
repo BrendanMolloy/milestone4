@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.contrib.auth import update_session_auth_hash
 from django.core.urlresolvers import reverse, reverse_lazy
-from .forms import UserLoginForm, UserRegistrationForm, ProfileForm, UserUpdateForm
+from .forms import (UserLoginForm, UserRegistrationForm, ProfileForm,
+                    UserUpdateForm)
 from django.template.context_processors import csrf
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
@@ -35,13 +36,14 @@ def login(request):
                 auth.login(request, user)
                 messages.error(request, "You have successfully logged in")
 
-                if request.GET and request.GET['next'] !='':
+                if request.GET and request.GET['next'] != '':
                     next = request.GET['next']
                     return HttpResponseRedirect(next)
                 else:
                     return redirect(reverse('index'))
             else:
-                user_form.add_error(None, "Your username or password are incorrect")
+                user_form.add_error(None,
+                                    "Your username or password are incorrect")
     else:
         user_form = UserLoginForm()
 
@@ -53,16 +55,17 @@ def login(request):
 def profile(request):
     """A view that displays the profile page of a logged in user"""
     try:
-        #retrieves the current user
-        user_id = request.user.pk  
-        #retrieves the Profile object associated with current user
-        currentprofile = Profile.objects.get(user=user_id) #
-        #renders profile.html with the Profile info of the current user
-        return render(request, 'profile.html', {'profile': currentprofile}) 
+        # retrieves the current user
+        user_id = request.user.pk
+        # retrieves the Profile object associated with current user
+        currentprofile = Profile.objects.get(user=user_id)
+        # renders profile.html with the Profile info of the current user
+        return render(request, 'profile.html', {'profile': currentprofile})
     except Profile.DoesNotExist:
-        #renders profile.html without Profile information, typically because user has not yet filled in their profile information
-        return render(request, 'profile.html') #
-        
+        # renders profile.html without Profile information,
+        # typically because user has not yet filled in
+        # their profile information
+        return render(request, 'profile.html')
 
 
 def register(request):
@@ -88,27 +91,31 @@ def register(request):
     args = {'user_form': user_form}
     return render(request, 'register.html', args)
 
+
 @login_required(login_url=reverse_lazy("login"))
 def edit_profile(request):
     """
     view to handle the form for users to enter/edit their profile information
     """
-    
-    #retrieves the current user
+    # retrieves the current user
     user_id = request.user.pk
-      
     if request.method == 'POST':
         baseform = UserUpdateForm(request.POST, user=request.user)
         profile_form = ProfileForm(request.POST)
         if baseform.is_valid() and profile_form.is_valid():
-            # save the new email and/or password - but only if the user tried to change it!
+            # save the new email and/or password
+            # but only if the user tried to change it!
             data = baseform.cleaned_data
-            if baseform.fields["email"].has_changed(request.user.email, data["email"]):
+            if baseform.fields["email"].has_changed(request.user.email,
+                                                    data["email"]):
                 request.user.email = data["email"]
                 request.user.save()
-            if (baseform.fields["current_password"].has_changed(None, data["current_password"])
-                or baseform.fields["new_password1"].has_changed(None, data["new_password1"])
-                or baseform.fields["new_password2"].has_changed(None, data["new_password2"])):
+            if (baseform.fields["current_password"].
+                has_changed(None, data["current_password"]) or
+                baseform.fields["new_password1"].
+                has_changed(None, data["new_password1"]) or
+                baseform.fields["new_password2"].
+                    has_changed(None, data["new_password2"])):
                 request.user.set_password(data["new_password1"])
                 request.user.save()
                 update_session_auth_hash(request, request.user)
@@ -119,11 +126,13 @@ def edit_profile(request):
                 details.save()
                 return redirect(profile)
             except IntegrityError:
-                # updates the user's Profile info and redirects them back their profile page
+                # updates the user's Profile info
+                # and redirects them back their profile page
                 # where they can now view the info they've uploaded.
                 details.pk = Profile.objects.get(user=user_id).pk
                 details.save()
-                messages.success(request, "You successfully updated your profile")
+                messages.success(request,
+                                 "You successfully updated your profile")
                 return redirect(profile)
         else:
             messages.error(request, "Please correct the highlighted errors:")
@@ -140,23 +149,27 @@ def edit_profile(request):
     args.update(csrf(request))
     return render(request, "editprofile.html", args)
 
+
 def delete_profile(request):
     """
-    This view renders the deleteprofile page where the user must confirm that they wish to delete their user/profile
+    This view renders the deleteprofile page
+    where the user must confirm that they wish to delete their user/profile
     """
-    #requests the current user
+    # requests the current user
     user = request.user
     if request.method == "POST":
         user.delete()
-        #redirects back to the home page
+        # redirects back to the home page
         return redirect(reverse('index'))
     context = {
         "object": user
     }
     return render(request, "deleteprofile.html", context)
 
+
 def orders(request):
     """A view that displays the orders page"""
     orders = Order.objects.all().order_by('date')
     order_line_items = OrderLineItem.objects.all().order_by('-order')
-    return render(request, "orders.html", {'orders': orders, 'order_line_items': order_line_items})
+    return render(request, "orders.html",
+                  {'orders': orders, 'order_line_items': order_line_items})

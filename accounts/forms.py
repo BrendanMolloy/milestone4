@@ -49,27 +49,31 @@ class UserRegistrationForm(UserCreationForm):
 
         return password2
 
+
 class UserUpdateForm(forms.Form):
     """
     Form for a user to edit their email and password
     """
     email = forms.EmailField()
-    current_password = forms.CharField(widget=forms.PasswordInput, required=False)
-    new_password1 = forms.CharField(label="New password", widget=forms.PasswordInput, required=False)
-    new_password2 = forms.CharField(label="Confirm new password", widget=forms.PasswordInput, required=False)
+    current_password = forms.CharField(widget=forms.PasswordInput,
+                                       required=False)
+    new_password1 = forms.CharField(label="New password",
+                                    widget=forms.PasswordInput, required=False)
+    new_password2 = forms.CharField(label="Confirm new password",
+                                    widget=forms.PasswordInput, required=False)
 
     # make sure we can pass the User instance in to the form
     def __init__(self, *args, **kwargs):
         self.user = kwargs.pop("user", None)
         super(UserUpdateForm, self).__init__(*args, **kwargs)
 
-
     def clean_current_password(self):
         old = self.cleaned_data.get("current_password")
         if not old or check_password(old, self.user.password):
             return old
         else:
-            raise forms.ValidationError("Please enter your correct current password")
+            raise forms.ValidationError("Please enter "
+                                        "your correct current password")
 
     def clean_new_password2(self):
         first = self.cleaned_data.get("new_password1")
@@ -81,7 +85,8 @@ class UserUpdateForm(forms.Form):
 
 class ProfileForm(forms.ModelForm):
     """
-    The form for a user to fill out their basic profile information (name, address, etc.)
+    The form for a user to fill out their basic profile information
+    (name, address, etc.)
     """
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
