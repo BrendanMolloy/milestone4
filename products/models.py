@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class Product(models.Model):
     """
@@ -8,7 +9,8 @@ class Product(models.Model):
     The attributes include:
         name: product's name
         description: a description of the product
-        tag: the associated tag of the product, allows products to be iltered by "accessory", "armor", or "weapon"
+        tag: the associated tag of the product,
+        allows products to be iltered by "accessory", "armor", or "weapon"
         price: the cost of the product
         image: the image of the product
     """
@@ -21,6 +23,7 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+
 class Comment(models.Model):
     """
     The Comment model stores the nformation associated with each comment
@@ -29,10 +32,13 @@ class Comment(models.Model):
         user: the user that created the comment
         body: the text of the comment
         created_on: the time the comment was created, used to sort comments
-        active: a boolean field that is set to true by default, can be set to false by admin to hide comment
+        active: a boolean field that is set to true by default,
+        can be set to false by admin to hide comment
     """
-    product = models.ForeignKey(Product,on_delete=models.CASCADE,related_name='comments')
-    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='comments')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,
+                                related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='comments')
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)
