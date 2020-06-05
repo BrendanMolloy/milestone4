@@ -1,71 +1,69 @@
 {% extends "base.html" %}
-
 {% block content %}
-    <div class="row product-detail">
-        <!-- Product image -->
-        <div class="col-md-5 col-sm-6 text-center">
-            <a href="#">
-                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
-            </a>
-        </div>
-        <!-- Product info -->
-        <div class="col-sm-6 col-md-6">
-            <h3>{{ product.name }}</h3>
-            <p><span class="boldtext">Price:</span><span> € {{ product.price }}</span></p>
-            <form method="post" action="{% url 'add_to_cart' product.id %}">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">Add</button>
-                        </span>
-                    </div>
-            </form>
-            <div class="row">
-                <div class="col-xs-12">
-                    <p>{{ product.description }}</p>
-
-                    <a href="{% url 'view_cart' %}" class="btn btn-default">View Cart</a>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- comments -->
-    {% if user.is_authenticated %}
-    <div class="col-md-12 card mb-4 mt-3">
-      <div class="card-body">
-        <h3>Leave a comment</h3>
-        <!-- Comment Form-->
-        <form method="post" style="margin-top: 1.3em;">
-          {{ comment_form.as_p }}
-          {% csrf_token %}
-          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-        </form>
+<div class="row product-detail">
+   <!-- Product image -->
+   <div class="col-md-5 col-sm-6 text-center">
+      <a href="#">
+      <img class="product-image" src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}">
+      </a>
+   </div>
+   <!-- Product info -->
+   <div class="col-sm-6 col-md-6">
+      <h3>{{ product.name }}</h3>
+      <p><span class="boldtext">Price:</span><span> € {{ product.price }}</span></p>
+      <form method="post" action="{% url 'add_to_cart' product.id %}">
+         {% csrf_token %}
+         <div class="input-group">
+            <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+            <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">Add</button>
+            </span>
+         </div>
+      </form>
+      <div class="row">
+         <div class="col-xs-12">
+            <p>{{ product.description }}</p>
+            <a href="{% url 'view_cart' %}" class="btn btn-default">View Cart</a>
+            <hr>
+         </div>
       </div>
-    </div>
-    {% endif %}
-
-    <div class="col-md-8 card mb-4 mt-3">
-      <div class="card-body">
-        <h2>{{ comments.count }} comments</h2>
-        <!-- Existing Comments -->
-        {% for comment in comments %}
-        <div class="comments" style="padding: 10px;">
-          <p class="font-weight-bold">
+   </div>
+</div>
+<!-- comments -->
+{% if user.is_authenticated %}
+<div class="col-md-12 card mb-4 mt-3">
+   <div class="card-body">
+      <h3>Leave a comment</h3>
+      <!-- Comment Form-->
+      <form method="post" style="margin-top: 1.3em;">
+         {{ comment_form.as_p }}
+         {% csrf_token %}
+         <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+      </form>
+   </div>
+</div>
+{% endif %}
+<div class="col-md-8 card mb-4 mt-3">
+   <div class="card-body">
+      <h2>{{ comments.count }} comments</h2>
+      <!-- Existing Comments -->
+      {% for comment in comments %}
+      <div class="comments" style="padding: 10px;">
+         <p class="font-weight-bold">
             {{ comment.user }}
             <span class=" text-muted font-weight-normal">
-              {{ comment.created_on }}
-              <!-- edit/delete comment buttons will only display if logged in as the user who posted the comment -->
-              {% if comment.user == user %}
-              <a href="{% url 'edit_comment' product.id comment.pk %}"><button>edit</button></a>
-              <a href="{% url 'delete_comment' product.id comment.pk %}"><button>delete</button></a>
-              {% endif %}
+               {{ comment.created_on }}
+               <!-- edit/delete comment buttons will only display if logged in as the user who posted the comment -->
+               {% if comment.user == user %}
+               <a href="{% url 'edit_comment' product.id comment.pk %}"><button>edit</button></a>
+               <a href="{% url 'delete_comment' product.id comment.pk %}"><button>delete</button></a>
+               {% endif %}
             </span>
-          </p>
-          {{ comment.body | linebreaks }}
-        </div>
-        {% endfor %}
+         </p>
+         {{ comment.body | linebreaks }}
       </div>
-    </div>
+      {% endfor %}
+   </div>
+</div>
 {% endblock %}
+
