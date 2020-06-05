@@ -119,6 +119,8 @@ def product_detail(request, id):
 def edit_comment(request, id, pk):
     """
     This view allows users to edit their comment
+    Uses id to specify the product
+    Uses pk to specify the comment  
     """
     product = get_object_or_404(Product, pk=id)
     # requests comment by pk
@@ -148,6 +150,8 @@ def delete_comment(request, id, pk):
     """
     This view renders the deletecomment page
     where the user must confirm that they wish to delete their comment.
+    Uses id to specify the product
+    Uses pk to specify the comment  
     """
     # requests comment by pk
     comment = get_object_or_404(Comment, pk=pk)
