@@ -1,18 +1,20 @@
+
+
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <h2>You are logged in as {{ user.username }} </h2>
-    <h4>and your shipping details are:</h4>
-    <p><span class="boldtext text-primary">Full Name:</span> {{ profile.full_name }}</p>
-    <p><span class="boldtext text-primary">Phone Number:</span> {{ profile.phone_number }}</p>
-    <p><span class="boldtext text-primary">Country:</span> {{ profile.country }}</p>
-    <p><span class="boldtext text-primary">Postcode:</span> {{ profile.postcode }}</p>
-    <p><span class="boldtext text-primary">Town/City:</span> {{ profile.town_or_city }}</p>
-    <p><span class="boldtext text-primary">Street Address 1:</span> {{ profile.street_address1 }}</p>
-    <p><span class="boldtext text-primary">Street Address 2:</span> {{ profile.street_address2 }}</p>
-    <p><span class="boldtext text-primary">County:</span> {{ profile.county }}</p>
-
-    <a href="{% url 'orders' %}"  class="btn btn-default">View Orders</a>
-    <a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
-    <a href="{% url 'delete_profile' %}"  class="btn btn-default">Delete profile</a>
+<h2>You are logged in as {{ user.username }} </h2>
+<h4>and your shipping details are:</h4>
+<p><span class="boldtext text-primary">Full Name:</span> {{ profile.full_name }}</p>
+<p><span class="boldtext text-primary">Phone Number:</span> {{ profile.phone_number }}</p>
+<p><span class="boldtext text-primary">Country:</span> {{ profile.country }}</p>
+<p><span class="boldtext text-primary">Postcode:</span> {{ profile.postcode }}</p>
+<p><span class="boldtext text-primary">Town/City:</span> {{ profile.town_or_city }}</p>
+<p><span class="boldtext text-primary">Street Address 1:</span> {{ profile.street_address1 }}</p>
+<p><span class="boldtext text-primary">Street Address 2:</span> {{ profile.street_address2 }}</p>
+<p><span class="boldtext text-primary">County:</span> {{ profile.county }}</p>
+<a href="{% url 'orders' %}"  class="btn btn-default">View Orders</a>
+<a href="{% url 'edit_profile' %}"  class="btn btn-default">Edit profile</a>
+<a href="{% url 'delete_profile' %}"  class="btn btn-default">Delete profile</a>
 {% endblock %}
+

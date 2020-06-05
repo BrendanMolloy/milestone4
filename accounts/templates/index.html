@@ -1,76 +1,74 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <div class="welcome">
-    <h1>Featured Products</h1>
+   <h1>Featured Products</h1>
 </div>
 <!-- Carousel -->
 <div class="carousel row">
-    <button class="carousel__button carousel__button--left is-hidden ">
-        <i class="material-icons">chevron_left</i>
-    </button>
-    <div class="carousel__track-container">
-        <ul class="carousel__track">
-            <li class="carousel__slide current-slide">
-                <a href="https://lootify.herokuapp.com/products/29/">
-                <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/rapier.png" alt="Rapier">
-                <div class="carousel-text">Rapierance <br><span class="carousel-subtext">is everything</span></div>
-                </a>
-            </li>
-            <li class="carousel__slide">
-                <a href="https://lootify.herokuapp.com/products/19/">
-                    <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/leather+cuirass.jpg" alt="Leather Cuirass">
-                    <div class="carousel-text">Be cuirassistable <br><span class="carousel-subtext"> also its armor</span></div>
-                </a>  
-            </li>
-            <li class="carousel__slide">
-                <a href="https://lootify.herokuapp.com/products/7/">
-                    <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/bottles.jpg" alt="Bottles">
-                    <div class="carousel-text">Put a cork in it <br><span class="carousel-subtext">after filling it with your favorite drinks</span></div>
-                </a>
-            </li>
-        </ul>
-    </div> 
-    <button class="carousel__button carousel__button--right">
-        <i class="material-icons">chevron_right</i>
-    </button>
-    <div class="row">
-        <div class="carousel__nav col-sm-12 col-md-12 col-lg-12">
-            <button class="carousel__indicator current-slide"></button>
-            <button class="carousel__indicator"></button>
-            <button class="carousel__indicator"></button>
-        </div>
-    </div>
+   <button class="carousel__button carousel__button--left is-hidden ">
+   <i class="material-icons">chevron_left</i>
+   </button>
+   <div class="carousel__track-container">
+      <ul class="carousel__track">
+         <li class="carousel__slide current-slide">
+            <a href="https://lootify.herokuapp.com/products/29/">
+               <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/rapier.png" alt="Rapier">
+               <div class="carousel-text">Rapierance <br><span class="carousel-subtext">is everything</span></div>
+            </a>
+         </li>
+         <li class="carousel__slide">
+            <a href="https://lootify.herokuapp.com/products/19/">
+               <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/leather+cuirass.jpg" alt="Leather Cuirass">
+               <div class="carousel-text">Be cuirassistable <br><span class="carousel-subtext"> also its armor</span></div>
+            </a>
+         </li>
+         <li class="carousel__slide">
+            <a href="https://lootify.herokuapp.com/products/7/">
+               <img class="carousel__image" src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/bottles.jpg" alt="Bottles">
+               <div class="carousel-text">Put a cork in it <br><span class="carousel-subtext">after filling it with your favorite drinks</span></div>
+            </a>
+         </li>
+      </ul>
+   </div>
+   <button class="carousel__button carousel__button--right">
+   <i class="material-icons">chevron_right</i>
+   </button>
+   <div class="row">
+      <div class="carousel__nav col-sm-12 col-md-12 col-lg-12">
+         <button class="carousel__indicator current-slide"></button>
+         <button class="carousel__indicator"></button>
+         <button class="carousel__indicator"></button>
+      </div>
+   </div>
 </div>
-
 <div class="welcome">
-    <h3>View Products by Category:</h3>
+   <h3>View Products by Category:</h3>
 </div>
 <!-- Category Icons -->
 <div class="container-fluid">
-    <div class="row">
-        <div id="accessories" class="category col-sm-4 col-md-4 col-lg-4">
-            <a class ="category-image" href="{% url 'all_accessory_products' %}">
-                <p class="icon-text">Accessories</p>
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_accessory.png" alt=" view accessories">
-            </a>
-        </div>
-        <div id="armor" class="category col-sm-4 col-md-4 col-lg-4">
-            <a class ="category-image" href="{% url 'all_armor_products' %}">
-                <p class="icon-text">Armor</p>
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
-            </a>
-        </div>
-        <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
-            <a class ="category-image" href="{% url 'all_accessory_products' %}"> 
-                <p class="icon-text">Weapons</p>
-                <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
-            </a>
-        </div>
-    </div>
+   <div class="row">
+      <div id="accessories" class="category col-sm-4 col-md-4 col-lg-4">
+         <a class ="category-image" href="{% url 'all_accessory_products' %}">
+            <p class="icon-text">Accessories</p>
+            <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_accessory.png" alt=" view accessories">
+         </a>
+      </div>
+      <div id="armor" class="category col-sm-4 col-md-4 col-lg-4">
+         <a class ="category-image" href="{% url 'all_armor_products' %}">
+            <p class="icon-text">Armor</p>
+            <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_armor.png" alt="view armor">
+         </a>
+      </div>
+      <div id="weapons" class="category col-sm-4 col-md-4 col-lg-4">
+         <a class ="category-image" href="{% url 'all_accessory_products' %}">
+            <p class="icon-text">Weapons</p>
+            <img src="https://brendans-lootify.s3-eu-west-1.amazonaws.com/media/images/icon_weapon.png" alt="view weapons">
+         </a>
+      </div>
+   </div>
 </div>
 <a class="view-all" href="{% url 'all_products' %}">or view all products here</a>
-
 {% load static %}
 <script src="{% static 'js/carousel.js' %}"></script>
 {% endblock %}
+
