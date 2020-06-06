@@ -27,7 +27,7 @@ def all_products(request):
 
 def all_accessory_products(request):
     """displays all products with the 'accessory' tag"""
-    products_list = Product.objects.filter(tag="accessory")
+    products_list = Product.objects.filter(tag="accessory").order_by('name')
     paginator = Paginator(products_list, 9)  # 9 products per page
     try:
         page = int(request.GET.get('page', '1'))
@@ -42,7 +42,7 @@ def all_accessory_products(request):
 
 def all_armor_products(request):
     """displays all products with the 'armor' tag"""
-    products_list = Product.objects.filter(tag="armor")
+    products_list = Product.objects.filter(tag="armor").order_by('name')
     paginator = Paginator(products_list, 9)  # 9 products per page
     try:
         page = int(request.GET.get('page', '1'))
@@ -57,7 +57,7 @@ def all_armor_products(request):
 
 def all_weapon_products(request):
     """displays all products with the 'weapon' tag"""
-    products_list = Product.objects.filter(tag="weapon")
+    products_list = Product.objects.filter(tag="weapon").order_by('name')
     paginator = Paginator(products_list, 9)  # 9 products per page
     try:
         page = int(request.GET.get('page', '1'))
