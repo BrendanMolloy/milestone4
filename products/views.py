@@ -42,7 +42,7 @@ def all_accessory_products(request):
 
 def all_armor_products(request):
     """displays all products with the 'armor' tag"""
-    products_list = Product.objects.filter(tag=tag)
+    products_list = Product.objects.filter(tag="armor")
     paginator = Paginator(products_list, 9)  # 9 products per page
     try:
         page = int(request.GET.get('page', '1'))
